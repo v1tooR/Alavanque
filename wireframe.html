@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wireframe — Alavanque | Dosadora G13</title>
+<title>Wireframe — Alavanque | Nova estrutura (3 abas)</title>
 <style>
   :root{
     --line:#8a8a8a;
@@ -25,7 +25,7 @@
     -webkit-font-smoothing:none;
   }
 
-  /* ---- top chrome: tabs + annotation toggle ---- */
+  /* ---- top chrome ---- */
   .topbar{
     position:sticky; top:0; z-index:50;
     background:var(--paper);
@@ -48,9 +48,7 @@
   .tab-btn:hover{background:var(--box-3);}
   .tab-btn.active{background:var(--line-strong); color:#fff;}
   .topbar-right{display:flex; align-items:center; gap:10px;}
-  .toggle-note{
-    font-size:11px; display:flex; align-items:center; gap:6px; color:var(--muted);
-  }
+  .toggle-note{font-size:11px; display:flex; align-items:center; gap:6px; color:var(--muted);}
   .scale-note{font-size:11px; color:var(--muted);}
 
   .device-toggle{display:flex; gap:0; border:1px solid var(--line-strong);}
@@ -67,77 +65,34 @@
   .page-frame{display:none; max-width:1180px; margin:0 auto; background:var(--paper); border-left:1px solid var(--line); border-right:1px solid var(--line);}
   .page-frame.active{display:block;}
 
-  /* ---- mobile device simulation ---- */
-  .phone-statusbar{display:none; background:var(--line-strong); color:#fff; font-size:10px; padding:8px 16px; justify-content:space-between; align-items:center; letter-spacing:.03em;}
-  body.view-mobile .phone-statusbar{display:flex;}
-
-  body.view-mobile .page-frame{
-    max-width:390px; margin:28px auto; border:10px solid var(--line-strong); border-radius:36px;
-    overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,.18);
-  }
-  body.view-mobile .device-label{font-size:10px; padding:6px 0;}
-  body.view-mobile section{padding:22px 18px;}
-
-  body.view-mobile .hero-split,
-  body.view-mobile .grid-2,
-  body.view-mobile .grid-3,
-  body.view-mobile .grid-4,
-  body.view-mobile .grid-5,
-  body.view-mobile .footer-grid{grid-template-columns:1fr; gap:16px;}
-
-  body.view-mobile .xbox{min-height:130px !important;}
-
-  body.view-mobile .h1-wire{font-size:19px;}
-  body.view-mobile .h2-wire{font-size:16px;}
-  body.view-mobile .h3-wire{font-size:13px;}
-  body.view-mobile .p-wire{font-size:12px;}
-  body.view-mobile .small-wire{font-size:10.5px;}
-  body.view-mobile .table-wire td{font-size:10.5px; padding:6px 8px;}
-
-  body.view-mobile .btn-row{flex-direction:column;}
-  body.view-mobile .btn{width:100%;}
-
-  body.view-mobile header.sitehead{padding:12px 16px;}
-  body.view-mobile header.sitehead nav{display:none;}
-  body.view-mobile header.sitehead .cta-mini{width:auto; height:auto; padding:7px 10px; font-size:9px;}
-  body.view-mobile header.sitehead .logo{width:88px; height:24px; font-size:9px;}
-
-  .hamburger{display:none; flex-direction:column; gap:4px; width:20px; cursor:pointer;}
-  .hamburger span{display:block; height:2px; background:var(--line-strong);}
-  body.view-mobile .hamburger{display:flex;}
-
   .device-label{
-    text-align:center; font-size:11px; color:var(--muted); padding:8px 0; letter-spacing:.15em; text-transform:uppercase;
+    text-align:center; font-size:11px; color:var(--muted); padding:8px 0; letter-spacing:.1em; text-transform:uppercase;
     border-bottom:1px dashed var(--line);
   }
+  .device-label .note{display:block; font-size:10px; text-transform:none; letter-spacing:0; color:var(--muted); margin-top:2px;}
 
-  section{
-    border-bottom:1px dashed var(--line);
-    padding:34px 40px;
-    position:relative;
-  }
+  section{border-bottom:1px dashed var(--line); padding:34px 40px; position:relative;}
   section .tag{
-    position:absolute; top:8px; left:8px;
-    font-size:10px; color:var(--muted); letter-spacing:.05em;
+    position:absolute; top:8px; left:8px; font-size:10px; color:var(--muted); letter-spacing:.05em;
     text-transform:uppercase; background:var(--paper); padding:2px 4px;
   }
+  body.show-annot section .tag{display:block;}
+  section .tag{display:none;}
+  .sec-technical{background:var(--bg);}
 
-  /* ---- generic wireframe primitives ---- */
-  .box{
-    background:var(--box);
-    border:1px solid var(--line-strong);
+  /* ---- purchase-journey block labels (always visible) ---- */
+  .block-wrapper{border-top:5px solid var(--line-strong);}
+  .block-label{
+    background:var(--line-strong); color:#fff; padding:11px 40px;
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
   }
-  .xbox{
-    background:var(--box);
-    border:1px solid var(--line-strong);
-    position:relative;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--muted); font-size:12px;
-    min-height:80px;
-  }
-  .xbox .label{position:relative; z-index:2; background:var(--paper); padding:1px 6px; border:1px solid var(--line); font-size:10px; text-transform:uppercase; letter-spacing:.05em;}
+  .block-label .block-title{font-size:12px; text-transform:uppercase; letter-spacing:.1em; font-weight:bold;}
+  .block-label .block-sub{font-size:11px; color:#d6d6d6;}
+  body.view-mobile .block-label{padding:10px 18px;}
+  body.view-mobile .block-label .block-title{font-size:10.5px;}
+  body.view-mobile .block-label .block-sub{font-size:9.5px;}
 
-  /* ---- real text, styled plainly (wireframe typography, not final design) ---- */
+  /* ---- text primitives ---- */
   .eyebrow-text{font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-bottom:8px;}
   .h1-wire{font-size:25px; font-weight:700; line-height:1.28; margin:0 0 14px;}
   .h2-wire{font-size:19px; font-weight:700; line-height:1.3; margin:0 0 12px;}
@@ -152,10 +107,11 @@
   .btn{
     display:inline-block; border:1.5px solid var(--line-strong); background:var(--box);
     padding:10px 18px; font-size:11px; text-transform:uppercase; letter-spacing:.06em;
-    text-align:center; font-family:inherit; color:var(--text);
+    text-align:center; font-family:inherit; color:var(--text); text-decoration:none;
   }
   .btn.solid{background:var(--line-strong); color:#fff;}
   .btn-row{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;}
+  .tab-jump{cursor:pointer;}
 
   .stat-pill{border:1px dashed var(--line-strong); padding:6px 10px; font-size:11px; display:inline-block; margin:3px 6px 3px 0;}
 
@@ -186,28 +142,55 @@
 
   .section-heading{margin-bottom:22px;}
 
-  /* header / footer specific */
-  header.sitehead{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 40px; border-bottom:1px solid var(--line-strong);
+  .xbox{
+    background:var(--box); border:1px solid var(--line-strong); position:relative;
+    display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; min-height:80px;
   }
+  .xbox .label{position:relative; z-index:2; background:var(--paper); padding:1px 6px; border:1px solid var(--line); font-size:10px; text-transform:uppercase; letter-spacing:.05em;}
+  .play-icon{width:0; height:0; border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:18px solid var(--line-strong); margin-right:8px;}
+
+  .box{background:var(--box); border:1px solid var(--line-strong);}
+
+  header.sitehead{display:flex; align-items:center; justify-content:space-between; padding:16px 40px; border-bottom:1px solid var(--line-strong);}
   header.sitehead .logo{width:120px; height:28px; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--muted); text-transform:uppercase;}
   header.sitehead nav{display:flex; gap:18px; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
-  header.sitehead .cta-mini{width:150px; height:32px; display:flex; align-items:center; justify-content:center; font-size:10px; text-transform:uppercase;}
+  header.sitehead nav div{cursor:pointer;}
+  header.sitehead nav div:hover{color:var(--text); text-decoration:underline;}
+  header.sitehead nav div.current{color:var(--text); font-weight:bold; text-decoration:underline;}
+  header.sitehead .cta-mini{width:150px; height:32px; display:flex; align-items:center; justify-content:center; font-size:10px; text-transform:uppercase; cursor:pointer;}
 
-  footer.sitefoot{
-    padding:30px 40px; background:var(--box); border-top:2px solid var(--line-strong);
-  }
+  footer.sitefoot{padding:30px 40px; background:var(--box); border-top:2px solid var(--line-strong);}
   .footer-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:24px;}
   .social-row{display:flex; gap:10px; margin-top:10px;}
   .social-dot{width:26px; height:26px; border-radius:50%; border:1px solid var(--line-strong); background:var(--paper); display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--muted);}
-
-  /* annotation mode */
-  body.show-annot section .tag{display:block;}
-  section .tag{display:none;}
+  footer .small-wire.tab-jump:hover{color:var(--text); text-decoration:underline;}
 
   .hero-split{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center;}
-  .hero-stack{display:grid; grid-template-columns:1fr; gap:10px; margin:18px 0;}
+
+  /* ---- mobile device simulation ---- */
+  .phone-statusbar{display:none; background:var(--line-strong); color:#fff; font-size:10px; padding:8px 16px; justify-content:space-between; align-items:center; letter-spacing:.03em;}
+  body.view-mobile .phone-statusbar{display:flex;}
+  body.view-mobile .page-frame{max-width:390px; margin:28px auto; border:10px solid var(--line-strong); border-radius:36px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,.18);}
+  body.view-mobile .device-label{font-size:10px; padding:6px 0;}
+  body.view-mobile section{padding:22px 18px;}
+  body.view-mobile .hero-split, body.view-mobile .grid-2, body.view-mobile .grid-3,
+  body.view-mobile .grid-4, body.view-mobile .grid-5, body.view-mobile .footer-grid{grid-template-columns:1fr; gap:16px;}
+  body.view-mobile .xbox{min-height:130px !important;}
+  body.view-mobile .h1-wire{font-size:19px;}
+  body.view-mobile .h2-wire{font-size:16px;}
+  body.view-mobile .h3-wire{font-size:13px;}
+  body.view-mobile .p-wire{font-size:12px;}
+  body.view-mobile .small-wire{font-size:10.5px;}
+  body.view-mobile .table-wire td{font-size:10.5px; padding:6px 8px;}
+  body.view-mobile .btn-row{flex-direction:column;}
+  body.view-mobile .btn{width:100%;}
+  body.view-mobile header.sitehead{padding:12px 16px;}
+  body.view-mobile header.sitehead nav{display:none;}
+  body.view-mobile header.sitehead .cta-mini{width:auto; height:auto; padding:7px 10px; font-size:9px;}
+  body.view-mobile header.sitehead .logo{width:88px; height:24px; font-size:9px;}
+  .hamburger{display:none; flex-direction:column; gap:4px; width:20px; cursor:pointer;}
+  .hamburger span{display:block; height:2px; background:var(--line-strong);}
+  body.view-mobile .hamburger{display:flex;}
 
   @media (max-width: 860px){
     .grid-2,.grid-3,.grid-4,.grid-5,.hero-split,.footer-grid{grid-template-columns:1fr;}
@@ -220,11 +203,11 @@
 
 <div class="topbar">
   <div class="topbar-left">
-    <span class="brand-tag">Alavanque · Wireframe Lo-Fi v2 (com texto real)</span>
+    <span class="brand-tag">Alavanque · Wireframe v3 — nova estrutura (3 abas)</span>
     <div class="tabs" role="tablist">
-      <button class="tab-btn active" data-page="p1">1 · Landing (Home)</button>
-      <button class="tab-btn" data-page="p2">2 · Dosadora G13</button>
-      <button class="tab-btn" data-page="p3">3 · Quem Somos</button>
+      <button class="tab-btn active" data-page="p1">1 · Home</button>
+      <button class="tab-btn" data-page="p2">2 · Quem Somos</button>
+      <button class="tab-btn" data-page="p3">3 · Itens adicionais</button>
     </div>
   </div>
   <div class="topbar-right">
@@ -240,230 +223,284 @@
 </div>
 
 <!-- ============================================================ -->
-<!-- PAGE 1 — LANDING / HOME -->
+<!-- PÁGINA 1 — HOME (Início + Dosadora G13 fundidas) -->
 <!-- ============================================================ -->
 <div class="page-frame active" id="p1">
   <div class="phone-statusbar"><span>9:41</span><span>●●●● 5G 🔋100%</span></div>
-  <div class="device-label">Página 1 — Início / Landing Page de Conversão</div>
+  <div class="device-label">Página 1 — Home
+    <span class="note">Início + Dosadora G13 fundidas · organizada em 3 blocos da jornada de compra</span>
+  </div>
 
   <header class="sitehead">
     <div class="box logo">LOGO ALAVANQUE</div>
     <nav>
-      <div>Início</div>
-      <div>Dosadora G13</div>
-      <div>Quem Somos</div>
-      <div>Contato</div>
+      <div class="current tab-jump" data-target="p1">Home</div>
+      <div class="tab-jump" data-target="p2">Quem Somos</div>
+      <div class="tab-jump" data-target="p3">Itens adicionais</div>
     </nav>
     <div class="hamburger"><span></span><span></span><span></span></div>
     <div class="box cta-mini">WhatsApp</div>
   </header>
 
-  <!-- HERO -->
-  <section>
-    <span class="tag">Hero Section</span>
-    <div class="hero-split">
-      <div>
-        <div class="h1-wire">Sua primeira dosadora para produzir mais, padronizar melhor e alavancar seu negócio</div>
-        <div class="p-wire">A Dosadora de Massas G13 Alavanque foi criada para pequenos e médios produtores que querem sair do processo manual, ganhar velocidade na produção e entregar produtos mais padronizados, com melhor acabamento e menos desperdício de tempo.</div>
-        <div class="p-wire">Produza pão de queijo, broas, chipas, biscoitos, rosquinhas, mini churros, nhoques e outros tipos de massas com mais praticidade, controle e eficiência.</div>
+  <!-- ============ BLOCO 1 · CONVENCER ============ -->
+  <div class="block-wrapper">
+    <div class="block-label">
+      <span class="block-title">Bloco 1 · Convencer</span>
+      <span class="block-sub">por que essa máquina vale a pena — pra quem está decidindo se compra</span>
+    </div>
+
+    <!-- A. HERO (texto reduzido) -->
+    <section>
+      <span class="tag">A · Hero (texto reduzido)</span>
+      <div class="hero-split">
         <div>
-          <span class="stat-pill">Produção de até 70 kg por hora</span>
-          <span class="stat-pill">Produtos de 7g a 120g</span>
-          <span class="stat-pill">Máquina de bancada</span>
-          <span class="stat-pill">Esteira manual de 2 metros</span>
-          <span class="stat-pill">Investimento acessível em até 12x sem juros</span>
+          <div class="h1-wire">Sua primeira dosadora para produzir mais, padronizar melhor e alavancar seu negócio</div>
+          <div class="p-wire">Criada para pequenos e médios produtores que querem sair do processo manual, ganhar velocidade e padronizar a produção com menos desperdício de tempo.</div>
+          <div>
+            <span class="stat-pill">Produção de até 70 kg por hora</span>
+            <span class="stat-pill">Produtos de 7g a 120g</span>
+            <span class="stat-pill">Máquina de bancada</span>
+            <span class="stat-pill">Em até 12x sem juros</span>
+          </div>
+          <div class="btn-row">
+            <div class="btn solid">Solicitar cotação no WhatsApp</div>
+            <a class="btn" href="#video-block">Assistir vídeo de apresentação</a>
+          </div>
         </div>
-        <div class="btn-row">
-          <div class="btn solid">Solicitar cotação no WhatsApp</div>
-          <div class="btn">Conhecer a Dosadora G13</div>
+        <div class="xbox" style="min-height:300px;"><span class="label">Imagem do produto</span></div>
+      </div>
+    </section>
+
+    <!-- B. BENEFÍCIOS -->
+    <section>
+      <span class="tag">B · Benefícios principais</span>
+      <div class="section-heading center"><div class="h2-wire">O que muda na sua produção com a Dosadora G13</div></div>
+      <div class="grid grid-4">
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Mais produtividade</div><div class="p-wire muted">Produza até 70 kg por hora, dependendo do método, tipo de massa e organização da operação.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Produtos mais padronizados</div><div class="p-wire muted">Controle melhor o peso, o formato e o acabamento dos seus produtos.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Menos tempo no processo manual</div><div class="p-wire muted">Reduza o esforço com moldagem e pesagem individual.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Mais higiene no processo</div><div class="p-wire muted">Menor contato manual com o alimento durante a produção.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Fácil operação</div><div class="p-wire muted">Equipamento simples de usar, ideal para quem está começando a automatizar.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Fácil higienização</div><div class="p-wire muted">Peças removíveis, laváveis com água e detergente neutro.</div></div>
+        <div class="card"><div class="box icon"></div><div class="h3-wire">Melhor custo-benefício</div><div class="p-wire muted">Aumente a capacidade produtiva sem investir em uma linha industrial completa.</div></div>
+      </div>
+    </section>
+
+    <!-- C. COMO FUNCIONA -->
+    <section>
+      <span class="tag">C · Como funciona</span>
+      <div class="section-heading center"><div class="h2-wire">Um equipamento simples para transformar sua rotina de produção</div></div>
+      <div class="grid grid-5">
+        <div class="card"><div class="num-badge">1</div><div class="h3-wire">Prepare sua massa</div><div class="small-wire">Em outro equipamento, como batedeira ou masseira.</div></div>
+        <div class="card"><div class="num-badge">2</div><div class="h3-wire">Coloque no cilindro</div><div class="small-wire">Capacidade máxima de 5 litros, aprox. 4,5 kg de massa.</div></div>
+        <div class="card"><div class="num-badge">3</div><div class="h3-wire">Regule o peso</div><div class="small-wire">Ajuste manual, entre 7g e 120g.</div></div>
+        <div class="card"><div class="num-badge">4</div><div class="h3-wire">Escolha o molde</div><div class="small-wire">Diferentes modelos, conforme o produto.</div></div>
+        <div class="card"><div class="num-badge">5</div><div class="h3-wire">Produza com padrão</div><div class="small-wire">Direto na esteira ou na bandeja.</div></div>
+      </div>
+    </section>
+
+    <!-- VÍDEO -->
+    <section id="video-block">
+      <span class="tag">Vídeo de apresentação (já existe no site atual)</span>
+      <div class="center mx-auto" style="max-width:640px; margin-bottom:16px;">
+        <div class="h3-wire">Vídeo de apresentação do equipamento</div>
+        <div class="small-wire">Mostra a G13 em funcionamento — reforça o "como funciona" sem precisar ler.</div>
+      </div>
+      <div class="xbox mx-auto" style="min-height:260px; max-width:760px;">
+        <div style="display:flex; align-items:center;"><span class="play-icon"></span><span class="label" style="border:none; background:none;">Vídeo do equipamento em uso</span></div>
+      </div>
+    </section>
+
+    <!-- D. PRODUTOS INDICADOS -->
+    <section>
+      <span class="tag">D · Para quais produtos a G13 é indicada?</span>
+      <div class="grid grid-2">
+        <div>
+          <div class="h2-wire">Para quais produtos a G13 é indicada?</div>
+          <div class="p-wire">A Dosadora G13 pode ser utilizada para formar ou dosar produtos como:</div>
+          <div class="small-wire">Recomendação: a massa precisa permitir a passagem do fio de corte sem muita resistência.</div>
         </div>
-      </div>
-      <div class="xbox" style="min-height:320px;"><span class="label">Imagem / vídeo do produto</span></div>
-    </div>
-  </section>
-
-  <!-- DOR -->
-  <section>
-    <span class="tag">Seção de Dor</span>
-    <div class="section-heading center" style="max-width:680px; margin:0 auto 26px;">
-      <div class="h2-wire">Sua produção ainda depende demais do trabalho manual?</div>
-      <div class="p-wire">Quem produz de forma artesanal sabe o quanto o processo manual pode limitar o crescimento do negócio.</div>
-    </div>
-    <div class="grid grid-2">
-      <div>
-        <ul class="list-wire">
-          <li>Você perde tempo moldando e pesando produto por produto.</li>
-          <li>A padronização nem sempre fica como deveria.</li>
-          <li>A equipe se desgasta com tarefas repetitivas.</li>
-          <li>O acabamento pode variar de uma unidade para outra.</li>
-          <li>E automatizar a produção parece algo caro ou distante da realidade.</li>
-        </ul>
-        <div class="p-wire">Mas crescer não precisa começar com uma linha industrial completa.</div>
-        <div class="p-wire">A Dosadora G13 Alavanque foi desenvolvida justamente para quem quer dar o primeiro passo na automação da produção com um equipamento acessível, robusto e eficiente.</div>
-      </div>
-      <div class="xbox" style="min-height:180px;"><span class="label">Ilustração / foto processo manual</span></div>
-    </div>
-  </section>
-
-  <!-- SOLUÇÃO -->
-  <section>
-    <span class="tag">Seção de Solução</span>
-    <div class="hero-split">
-      <div class="xbox" style="min-height:220px; order:2;"><span class="label">Foto máquina em uso</span></div>
-      <div style="order:1;">
-        <div class="h2-wire">Com a G13, sua produção ganha velocidade, padrão e controle</div>
-        <div class="p-wire">A Dosadora de Massas G13 molda e dosa massas frias com praticidade, ajudando sua empresa a produzir mais em menos tempo, com menor contato manual com o alimento e maior regularidade no tamanho dos produtos.</div>
-        <div class="p-wire">Ela é ideal para quem está começando a estruturar uma produção mais profissional, mas também pode atender operações maiores que buscam apoio em etapas específicas do processo.</div>
-        <div class="p-wire">Com regulagem manual de peso e diferentes modelos de moldes, a G13 se adapta a vários tipos de produto e ajuda sua produção a ganhar escala sem perder qualidade.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFÍCIOS -->
-  <section>
-    <span class="tag">Benefícios principais</span>
-    <div class="section-heading center">
-      <div class="h2-wire">O que muda na sua produção com a Dosadora G13</div>
-    </div>
-    <div class="grid grid-4">
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Mais produtividade</div><div class="p-wire muted">Produza até 70 kg por hora, dependendo do método de trabalho, tipo de massa e organização da operação.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Produtos mais padronizados</div><div class="p-wire muted">Controle melhor o peso, o formato e o acabamento dos seus produtos.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Menos tempo no processo manual</div><div class="p-wire muted">Reduza o esforço com moldagem e pesagem individual.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Mais higiene no processo</div><div class="p-wire muted">Menor contato manual com o alimento durante a produção.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Fácil operação</div><div class="p-wire muted">Equipamento simples de usar, ideal para quem está começando a automatizar.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Fácil higienização</div><div class="p-wire muted">As peças em contato com a massa são removíveis e podem ser lavadas com água e detergente neutro.</div></div>
-      <div class="card"><div class="box icon"></div><div class="h3-wire">Melhor custo-benefício</div><div class="p-wire muted">Uma solução acessível para aumentar a capacidade produtiva sem precisar investir em uma linha industrial completa.</div></div>
-    </div>
-  </section>
-
-  <!-- PRODUTO -->
-  <section>
-    <span class="tag">Seção de Produto</span>
-    <div class="hero-split">
-      <div class="xbox" style="min-height:260px;"><span class="label">Foto produto — Dosadora G13</span></div>
-      <div>
-        <div class="h2-wire">Dosadora de Massas G13 Alavanque</div>
-        <div class="p-wire">Equipamento robusto, de bancada, desenvolvido para moldar e dosar massas com eficiência, padronização e ótimo acabamento.</div>
-        <div class="p-wire">A G13 é indicada para produtores de pão de queijo e outros alimentos que precisam aumentar a produção, reduzir o tempo de preparo e melhorar o padrão final dos produtos.</div>
-        <div class="h3-wire" style="margin-top:14px;">Ideal para produzir:</div>
-        <div class="grid grid-2" style="gap:2px 20px;">
-          <div class="small-wire">— Pão de queijo</div><div class="small-wire">— Bolachas amanteigadas</div>
-          <div class="small-wire">— Broas</div><div class="small-wire">— Rosquinhas</div>
-          <div class="small-wire">— Chipas</div><div class="small-wire">— Mini churros</div>
-          <div class="small-wire">— Palitos de queijo</div><div class="small-wire">— Nhoques</div>
-          <div class="small-wire">— Biscoitos</div><div class="small-wire">— Massas amanteigadas frias c/ fio de corte</div>
-        </div>
-        <div class="btn-row">
-          <div class="btn">Ver detalhes da G13</div>
-          <div class="btn solid">Solicitar orçamento agora</div>
+        <div class="grid grid-3" style="gap:10px;">
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Pão de queijo</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Broas</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Chipas</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Palitos de queijo</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Biscoitos</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Bolachas amanteigadas</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Rosquinhas</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Mini churros</div>
+          <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Nhoques</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- COMO FUNCIONA -->
-  <section>
-    <span class="tag">Como funciona (5 passos)</span>
-    <div class="section-heading center"><div class="h2-wire">Um equipamento simples para transformar sua rotina de produção</div></div>
-    <div class="grid grid-5">
-      <div class="card"><div class="num-badge">1</div><div class="h3-wire">Prepare sua massa</div><div class="small-wire">A massa deve ser produzida em outro equipamento, como batedeira ou masseira.</div></div>
-      <div class="card"><div class="num-badge">2</div><div class="h3-wire">Coloque no cilindro da G13</div><div class="small-wire">O cilindro possui capacidade máxima de 5 litros, aprox. 4,5 kg de massa.</div></div>
-      <div class="card"><div class="num-badge">3</div><div class="h3-wire">Regule o peso desejado</div><div class="small-wire">Com ajuste manual, é possível variar o tamanho do produto entre 7g e 120g.</div></div>
-      <div class="card"><div class="num-badge">4</div><div class="h3-wire">Escolha o molde ideal</div><div class="small-wire">Diferentes modelos de moldes para se adaptar ao produto desejado.</div></div>
-      <div class="card"><div class="num-badge">5</div><div class="h3-wire">Produza com padrão e velocidade</div><div class="small-wire">A massa é moldada e dosada direto na esteira ou na bandeja.</div></div>
-    </div>
-  </section>
-
-  <!-- MÉTODOS -->
-  <section>
-    <span class="tag">Métodos de produção</span>
-    <div class="section-heading center"><div class="h2-wire">Escolha o formato ideal para sua operação</div></div>
-    <div class="grid grid-2">
-      <div class="card">
-        <div class="xbox" style="min-height:140px; margin-bottom:12px;"><span class="label">Foto — método esteira</span></div>
-        <div class="h3-wire">Método com esteira manual</div>
-        <div class="p-wire">A massa moldada e dosada cai diretamente na esteira. Depois, basta retirar os produtos e colocá-los em outro recipiente.</div>
-        <div class="p-wire">Esse método é fácil de operar e pode ser feito por uma ou duas pessoas. A esteira possui 19 cm de largura por 2 metros de comprimento e é fabricada em material atóxico.</div>
-        <div class="p-wire">É uma excelente opção para quem está começando e quer aumentar a produtividade com uma estrutura simples e funcional.</div>
-      </div>
-      <div class="card">
-        <div class="xbox" style="min-height:140px; margin-bottom:12px;"><span class="label">Foto — método bandeja</span></div>
-        <div class="h3-wire">Método com bandeja</div>
-        <div class="p-wire">Nesse método, a massa moldada e dosada cai diretamente na bandeja, permitindo que o produto já seja levado para o armário ou freezer sem precisar trocar de recipiente.</div>
-        <div class="p-wire">É uma alternativa mais prática e rápida, indicada para quem deseja mais eficiência na rotina produtiva.</div>
-        <div class="p-wire">A bandeja possui 19 cm de largura por 50 cm de comprimento e é ideal para armazenamento em freezer vertical grande, de 500 litros, com prateleiras originais.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROVA SOCIAL -->
-  <section>
-    <span class="tag">Prova social / Depoimentos</span>
-    <div class="section-heading center"><div class="h2-wire">Quem usa, sente a diferença na produção</div></div>
-    <div class="grid grid-2">
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">Equipamento prático e resistente, ajudou a crescer nossa produção em mais de 4 vezes e melhorou a padronização do produto. Recomendo.</div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div class="box" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><div class="quote-author">Rose</div><div class="quote-role">Proteijo</div></div>
+    <!-- F. PROVA SOCIAL -->
+    <section>
+      <span class="tag">F · Prova social / Depoimentos</span>
+      <div class="section-heading center"><div class="h2-wire">Quem usa, sente a diferença na produção</div></div>
+      <div class="grid grid-2">
+        <div class="quote-card">
+          <div class="quote-mark">"</div>
+          <div class="quote-text">Equipamento prático e resistente, ajudou a crescer nossa produção em mais de 4 vezes e melhorou a padronização do produto. Recomendo.</div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="box" style="width:36px;height:36px;border-radius:50%;"></div>
+            <div><div class="quote-author">Rose</div><div class="quote-role">Proteijo</div></div>
+          </div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-mark">"</div>
+          <div class="quote-text">A aquisição da porcionadora da Alavanque nos permitiu aumentar o leque de produtos, acelerar nossa produção e nos ajudou a crescer. A qualidade da máquina é excelente e o suporte no pós-compra foi essencial.</div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="box" style="width:36px;height:36px;border-radius:50%;"></div>
+            <div><div class="quote-author">Gisele</div><div class="quote-role">Wallaby</div></div>
+          </div>
         </div>
       </div>
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">A aquisição da porcionadora da Alavanque nos permitiu aumentar o leque de produtos, acelerar nossa produção e nos ajudou a crescer. A qualidade da máquina é excelente e o suporte da empresa no pós-compra foi essencial para deixar tudo muito bem alinhado.</div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div class="box" style="width:36px;height:36px;border-radius:50%;"></div>
-          <div><div class="quote-author">Gisele</div><div class="quote-role">Wallaby</div></div>
+    </section>
+
+    <!-- G. UMA MÁQUINA PARA CRESCER COM VOCÊ -->
+    <section>
+      <span class="tag">G · Uma máquina para crescer com você</span>
+      <div class="hero-split">
+        <div>
+          <div class="h2-wire">Uma máquina para crescer com você</div>
+          <div class="p-wire">Ideal para quem está começando uma linha de produção artesanal, utiliza freezers comerciais e busca aumentar sua capacidade produtiva.</div>
+          <div class="p-wire">Pode ser sua primeira máquina para profissionalizar a produção, ganhar tempo e atender melhor a demanda dos seus clientes.</div>
+          <div class="p-wire">Mesmo depois, com uma estrutura mais automatizada, a G13 continua útil para apoiar processos, testes e produções menores.</div>
+        </div>
+        <div class="xbox" style="min-height:180px;"><span class="label">Foto — linha de produção</span></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ BLOCO 2 · DETALHES TÉCNICOS ============ -->
+  <div class="block-wrapper">
+    <div class="block-label">
+      <span class="block-title">Bloco 2 · Detalhes técnicos</span>
+      <span class="block-sub">pra quem já decidiu comprar e quer conferir as especificações antes de fechar</span>
+    </div>
+
+    <!-- E. MÉTODOS DE PRODUÇÃO -->
+    <section class="sec-technical">
+      <span class="tag">E · Métodos de produção</span>
+      <div class="section-heading center"><div class="h2-wire">Escolha o formato ideal para sua operação</div></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="xbox" style="min-height:130px; margin-bottom:12px;"><span class="label">Foto — método esteira</span></div>
+          <div class="h3-wire">Método com esteira manual</div>
+          <div class="p-wire">A massa moldada e dosada cai diretamente na esteira. Depois, basta retirar os produtos e colocá-los em outro recipiente.</div>
+          <div class="p-wire">Fácil de operar, feito por uma ou duas pessoas. Esteira de 19 cm de largura por 2 metros, em material atóxico.</div>
+          <div class="p-wire">Excelente opção para quem está começando.</div>
+        </div>
+        <div class="card">
+          <div class="xbox" style="min-height:130px; margin-bottom:12px;"><span class="label">Foto — método bandeja</span></div>
+          <div class="h3-wire">Método com bandeja</div>
+          <div class="p-wire">A massa cai diretamente na bandeja, que já pode ser levada ao armário ou freezer sem trocar de recipiente.</div>
+          <div class="p-wire">Mais rápido e prático, indicado para quem quer mais eficiência na rotina.</div>
+          <div class="p-wire">Bandeja de 19 cm por 50 cm, ideal para freezer vertical de 500 litros com prateleiras originais.</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONFIANÇA -->
-  <section>
-    <span class="tag">Seção de confiança / institucional</span>
-    <div class="hero-split">
-      <div class="xbox" style="min-height:180px;"><span class="label">Foto fábrica / equipe</span></div>
-      <div>
-        <div class="h2-wire">Desenvolvida por quem entende de produção</div>
-        <div class="p-wire">A Alavanque é uma empresa de equipamentos para gastronomia localizada em Jacareí, no interior de São Paulo.</div>
-        <div class="p-wire">Com experiência em equipamentos e linhas de produção, nossa equipe de engenharia desenvolve soluções acessíveis, robustas e eficientes para pequenas e médias empresas que desejam crescer com mais organização, produtividade e qualidade.</div>
-        <div class="p-wire">A Dosadora G13 é um produto patenteado e foi projetada para ajudar produtores a pouparem tempo na produção e focarem no que realmente faz o negócio crescer: clientes, vendas e qualidade.</div>
+    <!-- H. REGULAGEM DE PESO -->
+    <section class="sec-technical">
+      <span class="tag">H · Regulagem de peso</span>
+      <div class="grid grid-2">
+        <div class="xbox" style="min-height:150px;"><span class="label">Foto / diagrama regulagem</span></div>
+        <div>
+          <div class="h2-wire">Controle o tamanho do seu produto com facilidade</div>
+          <div class="p-wire">Regulagem manual de peso: com um giro da peça, ajusta o tamanho do produto entre 7g e 120g.</div>
+          <div class="p-wire">Permite trabalhar com diferentes linhas de produtos usando o mesmo equipamento.</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ESPECIFICAÇÕES -->
-  <section>
-    <span class="tag">Características técnicas (resumo)</span>
-    <div class="section-heading center"><div class="h2-wire">Especificações da G13</div></div>
-    <table class="table-wire">
-      <tr><td class="k">Altura</td><td>60 cm</td></tr>
-      <tr><td class="k">Largura</td><td>45 cm</td></tr>
-      <tr><td class="k">Profundidade</td><td>40 cm</td></tr>
-      <tr><td class="k">Peso</td><td>32 kg</td></tr>
-      <tr><td class="k">Capacidade do cilindro</td><td>até 5 litros, aproximadamente 4,5 kg de massa</td></tr>
-      <tr><td class="k">Peso dos produtos</td><td>de 7g a 120g</td></tr>
-      <tr><td class="k">Largura da esteira</td><td>19 cm</td></tr>
-      <tr><td class="k">Comprimento da esteira</td><td>2 metros</td></tr>
-      <tr><td class="k">Garantia</td><td>6 meses</td></tr>
-      <tr><td class="k">Tipo</td><td>máquina de bancada</td></tr>
-      <tr><td class="k">Função</td><td>moldar e dosar massas</td></tr>
-    </table>
-  </section>
+    <!-- I. MOLDES -->
+    <section class="sec-technical">
+      <span class="tag">I · Moldes disponíveis</span>
+      <div class="section-heading center">
+        <div class="h2-wire">Vários formatos para diferentes produtos</div>
+        <div class="p-wire">A Alavanque fornece diferentes modelos de moldes padrão:</div>
+      </div>
+      <div class="grid grid-3">
+        <div class="card center"><div class="xbox" style="min-height:90px;"><span class="label">Molde A</span></div><div class="small-wire" style="margin-top:10px;">2 furos de 5 cm de diâmetro</div></div>
+        <div class="card center"><div class="xbox" style="min-height:90px;"><span class="label">Molde B</span></div><div class="small-wire" style="margin-top:10px;">3 furos de 3,5 cm</div></div>
+        <div class="card center"><div class="xbox" style="min-height:90px;"><span class="label">Molde C</span></div><div class="small-wire" style="margin-top:10px;">Até 9 furos de 1,3 cm — ideal para nhoques ou palitinhos</div></div>
+      </div>
+      <div class="p-wire center" style="margin-top:16px;">Moldes especiais sob consulta.</div>
+    </section>
 
-  <!-- CTA FINAL -->
-  <section class="center" style="background:var(--box);">
-    <span class="tag">CTA final</span>
-    <div class="h2-wire mx-auto" style="max-width:560px;">Pronto para alavancar sua produção?</div>
-    <div class="p-wire mx-auto" style="max-width:560px;">A Dosadora G13 foi feita para quem quer produzir mais, padronizar melhor e profissionalizar a rotina sem começar com um investimento industrial.</div>
-    <div class="p-wire mx-auto" style="max-width:560px;">Fale com a equipe da Alavanque e veja a cotação do seu novo equipamento pelo WhatsApp.</div>
-    <div class="btn-row" style="justify-content:center;">
-      <div class="btn solid">Solicitar cotação no WhatsApp</div>
-      <div class="btn">Ver catálogo da Alavanque</div>
+    <!-- J. HIGIENIZAÇÃO -->
+    <section class="sec-technical">
+      <span class="tag">J · Higienização</span>
+      <div class="hero-split">
+        <div>
+          <div class="h2-wire">Fácil de limpar e manter</div>
+          <div class="p-wire">Cilindro, molde e êmbolo são produzidos em material atóxico e são facilmente removíveis.</div>
+          <div class="p-wire">Lavagem com água e detergente neutro, em pia de utensílios — rotina de limpeza simples e segura.</div>
+        </div>
+        <div class="xbox" style="min-height:150px;"><span class="label">Foto — peças removíveis</span></div>
+      </div>
+    </section>
+
+    <!-- K. DADOS DO EQUIPAMENTO -->
+    <section class="sec-technical">
+      <span class="tag">K · Dados do equipamento</span>
+      <div class="section-heading center"><div class="h2-wire">Dados do equipamento</div></div>
+      <table class="table-wire">
+        <tr><td class="k">Altura</td><td>60 cm</td></tr>
+        <tr><td class="k">Largura</td><td>45 cm</td></tr>
+        <tr><td class="k">Profundidade</td><td>40 cm</td></tr>
+        <tr><td class="k">Peso</td><td>32 kg</td></tr>
+        <tr><td class="k">Capacidade máxima do cilindro</td><td>5 litros</td></tr>
+        <tr><td class="k">Capacidade aproximada de massa</td><td>4,5 kg</td></tr>
+        <tr><td class="k">Peso dos produtos</td><td>de 7g a 120g</td></tr>
+        <tr><td class="k">Esteira manual</td><td>19 cm de largura por 2 metros de comprimento</td></tr>
+        <tr><td class="k">Tipo</td><td>máquina de bancada</td></tr>
+        <tr><td class="k">Função</td><td>moldar e dosar massas</td></tr>
+      </table>
+      <div class="p-wire center" style="margin-top:14px;">A massa deve ser produzida previamente em outro equipamento, como batedeira ou masseira.</div>
+    </section>
+  </div>
+
+  <!-- ============ BLOCO 3 · FECHAR A COMPRA ============ -->
+  <div class="block-wrapper">
+    <div class="block-label">
+      <span class="block-title">Bloco 3 · Fechar a compra</span>
+      <span class="block-sub">tira a última dúvida e leva pro botão de contato</span>
     </div>
-  </section>
+
+    <!-- L. GARANTIA E INSTALAÇÃO -->
+    <section>
+      <span class="tag">L · Garantia e instalação</span>
+      <div class="section-heading center"><div class="h2-wire">Sem complicação para começar</div></div>
+      <div class="grid grid-2">
+        <div class="card"><div class="h3-wire">Garantia</div><div class="p-wire">6 meses em todas as peças, exceto em casos de mau uso.</div></div>
+        <div class="card"><div class="h3-wire">Instalação</div><div class="p-wire">Não exige adequação específica do local — use sobre uma mesa adequada para operação.</div></div>
+      </div>
+    </section>
+
+    <!-- M. SUPORTE -->
+    <section>
+      <span class="tag">M · Suporte</span>
+      <div class="center mx-auto" style="max-width:640px;">
+        <div class="h2-wire">Suporte para sua produção não parar</div>
+        <div class="p-wire">Acesso ao time da Alavanque para orientações e suporte por chamadas de vídeo ou mensagens.</div>
+        <div class="p-wire">Em caso de necessidade, a assistência técnica pode ser acionada para atendimento no local.</div>
+      </div>
+    </section>
+
+    <!-- N. CTA FINAL -->
+    <section class="center" style="background:var(--box);">
+      <span class="tag">N · CTA final</span>
+      <div class="h2-wire mx-auto" style="max-width:560px;">Pronto para alavancar sua produção?</div>
+      <div class="p-wire mx-auto" style="max-width:560px;">Fale com a equipe da Alavanque e veja a cotação do seu novo equipamento pelo WhatsApp.</div>
+      <div class="btn-row" style="justify-content:center;">
+        <div class="btn solid">Solicitar cotação no WhatsApp</div>
+        <div class="btn tab-jump" data-target="p3">Ver itens adicionais</div>
+      </div>
+    </section>
+  </div>
 
   <footer class="sitefoot">
     <span class="tag" style="position:static; display:inline-block; margin-bottom:10px;">Rodapé</span>
@@ -476,255 +513,9 @@
       </div>
       <div>
         <div class="h3-wire">Navegação</div>
-        <div class="small-wire">Início</div>
-        <div class="small-wire">Dosadora G13</div>
-        <div class="small-wire">Quem Somos</div>
-      </div>
-      <div>
-        <div class="h3-wire">Redes sociais</div>
-        <div class="social-row">
-          <div class="social-dot">IG</div><div class="social-dot">FB</div><div class="social-dot">YT</div>
-        </div>
-        <div class="small-wire" style="margin-top:8px;">@alavanque.equipamentos</div>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<!-- ============================================================ -->
-<!-- PAGE 2 — PRODUTO G13 -->
-<!-- ============================================================ -->
-<div class="page-frame" id="p2">
-  <div class="phone-statusbar"><span>9:41</span><span>●●●● 5G 🔋100%</span></div>
-  <div class="device-label">Página 2 — Dosadora G13 (Página de Produto)</div>
-
-  <header class="sitehead">
-    <div class="box logo">LOGO ALAVANQUE</div>
-    <nav>
-      <div>Início</div>
-      <div>Dosadora G13</div>
-      <div>Quem Somos</div>
-      <div>Contato</div>
-    </nav>
-    <div class="hamburger"><span></span><span></span><span></span></div>
-    <div class="box cta-mini">WhatsApp</div>
-  </header>
-
-  <!-- HERO DA PÁGINA -->
-  <section>
-    <span class="tag">Hero da página</span>
-    <div class="hero-split">
-      <div>
-        <div class="h1-wire">Dosadora de Massas G13 Alavanque</div>
-        <div class="p-wire">A máquina ideal para quem quer aumentar a produção, padronizar seus produtos e dar o primeiro passo na automação.</div>
-        <div class="p-wire">A G13 é um equipamento robusto, de bancada, desenvolvido para moldar e dosar massas com eficiência, praticidade e ótimo acabamento.</div>
-        <div class="p-wire">Indicada para pequenos e médios produtores, ela ajuda a transformar uma produção artesanal em uma operação mais rápida, organizada e profissional.</div>
-        <div class="btn-row">
-          <div class="btn solid">Solicitar cotação</div>
-          <div class="btn">Ver vídeo de apresentação</div>
-        </div>
-      </div>
-      <div class="xbox" style="min-height:280px;"><span class="label">Vídeo / imagem hero produto</span></div>
-    </div>
-  </section>
-
-  <!-- APRESENTAÇÃO -->
-  <section>
-    <span class="tag">Apresentação do equipamento</span>
-    <div class="center mx-auto" style="max-width:720px;">
-      <div class="h2-wire">Alta produtividade com operação simples</div>
-      <div class="p-wire">A Dosadora de Massas G13 Alavanque foi desenvolvida para produtores que precisam ganhar escala sem perder controle sobre a qualidade.</div>
-      <div class="p-wire">Com ela, é possível produzir até 70 kg por hora, dependendo do método utilizado, tipo de massa e organização da equipe.</div>
-      <div class="p-wire">O equipamento permite dosar produtos de 7g a 120g, oferecendo flexibilidade para diferentes formatos, tamanhos e tipos de produção.</div>
-      <div>
-        <span class="stat-pill">até 70 kg/h</span>
-        <span class="stat-pill">7g – 120g</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- INDICAÇÃO DE USO -->
-  <section>
-    <span class="tag">Indicação de uso (produtos)</span>
-    <div class="grid grid-2">
-      <div>
-        <div class="h3-wire">Para quais produtos a G13 é indicada?</div>
-        <div class="p-wire">A Dosadora G13 pode ser utilizada para formar ou dosar produtos como:</div>
-        <div class="small-wire">A recomendação é que a massa permita a passagem do fio de corte sem muita resistência.</div>
-      </div>
-      <div class="grid grid-3" style="gap:10px;">
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Pão de queijo</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Broas</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Chipas</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Palitos de queijo</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Biscoitos</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Bolachas amanteigadas</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Rosquinhas</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Mini churros</div>
-        <div class="box small-wire" style="height:44px; display:flex; align-items:center; justify-content:center;">Nhoques</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ALAVANQUE SUA PRODUÇÃO -->
-  <section>
-    <span class="tag">Alavanque sua produção</span>
-    <div class="hero-split">
-      <div>
-        <div class="h2-wire">Uma máquina para crescer com você</div>
-        <div class="p-wire">A G13 é ideal para quem está começando uma linha de produção artesanal, utiliza freezers comerciais e busca aumentar sua capacidade produtiva.</div>
-        <div class="p-wire">Ela pode ser sua primeira máquina para profissionalizar a produção, ganhar tempo e atender melhor a demanda dos seus clientes.</div>
-        <div class="p-wire">Mesmo depois, com uma estrutura mais automatizada, a G13 continua sendo útil para apoiar processos, testes, produtos específicos e produções menores.</div>
-      </div>
-      <div class="xbox" style="min-height:180px;"><span class="label">Foto — linha de produção</span></div>
-    </div>
-  </section>
-
-  <!-- MÉTODOS: ESTEIRA -->
-  <section>
-    <span class="tag">Modo de produção — Esteira</span>
-    <div class="hero-split">
-      <div class="xbox" style="min-height:200px;"><span class="label">Foto — esteira manual</span></div>
-      <div>
-        <div class="h3-wire">Método esteira manual</div>
-        <div class="p-wire">No método com esteira manual, a massa moldada e dosada cai diretamente na esteira.</div>
-        <div class="p-wire">Depois, o operador retira o produto e coloca em outro recipiente.</div>
-        <div class="p-wire">Esse formato é prático, simples e pode ser operado por uma ou duas pessoas.</div>
-        <div class="p-wire">A esteira possui 19 cm de largura por 2 metros de comprimento e é fabricada em material atóxico.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MÉTODOS: BANDEJA -->
-  <section>
-    <span class="tag">Modo de produção — Bandeja</span>
-    <div class="hero-split">
-      <div>
-        <div class="h3-wire">Método bandeja</div>
-        <div class="p-wire">No método com bandeja, a massa cai diretamente na bandeja e já pode ser levada ao armário ou freezer, sem necessidade de trocar o produto de recipiente.</div>
-        <div class="p-wire">Esse método é mais rápido e prático, sendo indicado para quem deseja mais eficiência no processo.</div>
-        <div class="p-wire">A bandeja mede 19 cm de largura por 50 cm de comprimento e é ideal para freezer vertical grande de 500 litros com prateleiras originais.</div>
-      </div>
-      <div class="xbox" style="min-height:200px;"><span class="label">Foto — método bandeja</span></div>
-    </div>
-  </section>
-
-  <!-- REGULAGEM DE PESO -->
-  <section>
-    <span class="tag">Regulagem de peso</span>
-    <div class="grid grid-2">
-      <div class="xbox" style="min-height:160px;"><span class="label">Foto / diagrama regulagem</span></div>
-      <div>
-        <div class="h2-wire">Controle o tamanho do seu produto com facilidade</div>
-        <div class="p-wire">A G13 possui regulagem manual de peso.</div>
-        <div class="p-wire">Com um simples giro da peça, é possível ajustar o tamanho do produto entre 7g e 120g, conforme a necessidade da produção.</div>
-        <div class="p-wire">Isso permite trabalhar com diferentes linhas de produtos usando o mesmo equipamento.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOLDES -->
-  <section>
-    <span class="tag">Moldes disponíveis</span>
-    <div class="section-heading center">
-      <div class="h2-wire">Vários formatos para diferentes produtos</div>
-      <div class="p-wire mx-auto" style="max-width:600px;">A Alavanque fornece diferentes modelos de moldes padrão, como:</div>
-    </div>
-    <div class="grid grid-3">
-      <div class="card center">
-        <div class="xbox" style="min-height:100px;"><span class="label">Molde A</span></div>
-        <div class="small-wire" style="margin-top:10px;">Molde com 2 furos de 5 cm de diâmetro</div>
-      </div>
-      <div class="card center">
-        <div class="xbox" style="min-height:100px;"><span class="label">Molde B</span></div>
-        <div class="small-wire" style="margin-top:10px;">Molde com 3 furos de 3,5 cm</div>
-      </div>
-      <div class="card center">
-        <div class="xbox" style="min-height:100px;"><span class="label">Molde C</span></div>
-        <div class="small-wire" style="margin-top:10px;">Molde com até 9 furos de 1,3 cm, ideal para nhoques ou palitinhos de pão de queijo</div>
-      </div>
-    </div>
-    <div class="p-wire center" style="margin-top:16px;">Também é possível consultar a disponibilidade de moldes especiais sob demanda.</div>
-  </section>
-
-  <!-- HIGIENIZAÇÃO -->
-  <section>
-    <span class="tag">Higienização</span>
-    <div class="hero-split">
-      <div>
-        <div class="h2-wire">Fácil de limpar e manter</div>
-        <div class="p-wire">Todas as peças que entram em contato com a massa, como cilindro, molde e êmbolo, são produzidas em material atóxico.</div>
-        <div class="p-wire">Essas peças são facilmente removíveis, permitindo a lavagem com água e detergente neutro em pia de utensílios.</div>
-        <div class="p-wire">Isso facilita a rotina de limpeza e contribui para um processo de produção mais seguro e organizado.</div>
-      </div>
-      <div class="xbox" style="min-height:160px;"><span class="label">Foto — peças removíveis</span></div>
-    </div>
-  </section>
-
-  <!-- CARACTERÍSTICAS TÉCNICAS -->
-  <section>
-    <span class="tag">Características técnicas (completo)</span>
-    <div class="section-heading center"><div class="h2-wire">Dados do equipamento</div></div>
-    <table class="table-wire">
-      <tr><td class="k">Altura</td><td>60 cm</td></tr>
-      <tr><td class="k">Largura</td><td>45 cm</td></tr>
-      <tr><td class="k">Profundidade</td><td>40 cm</td></tr>
-      <tr><td class="k">Peso</td><td>32 kg</td></tr>
-      <tr><td class="k">Capacidade máxima do cilindro</td><td>5 litros</td></tr>
-      <tr><td class="k">Capacidade aproximada de massa</td><td>4,5 kg</td></tr>
-      <tr><td class="k">Peso dos produtos</td><td>de 7g a 120g</td></tr>
-      <tr><td class="k">Esteira manual</td><td>19 cm de largura por 2 metros de comprimento</td></tr>
-      <tr><td class="k">Tipo</td><td>máquina de bancada</td></tr>
-      <tr><td class="k">Função</td><td>moldar e dosar massas</td></tr>
-    </table>
-    <div class="p-wire center" style="margin-top:14px;">A massa deve ser produzida previamente em outro equipamento, como batedeira ou masseira.</div>
-  </section>
-
-  <!-- GARANTIA / INSTALAÇÃO -->
-  <section>
-    <span class="tag">Garantia e instalação</span>
-    <div class="section-heading center"><div class="h2-wire">Sem complicação para começar</div></div>
-    <div class="grid grid-2">
-      <div class="card"><div class="h3-wire">Garantia</div><div class="p-wire">A Dosadora G13 possui garantia de 6 meses em todas as peças, exceto em casos de mau uso.</div></div>
-      <div class="card"><div class="h3-wire">Instalação</div><div class="p-wire">O equipamento não exige adequação específica do local. A recomendação é utilizar a máquina sobre uma mesa adequada para operação.</div></div>
-    </div>
-  </section>
-
-  <!-- MANUTENÇÃO / SUPORTE -->
-  <section>
-    <span class="tag">Manutenção e suporte</span>
-    <div class="center mx-auto" style="max-width:640px;">
-      <div class="h2-wire">Suporte para sua produção não parar</div>
-      <div class="p-wire">Ao adquirir a G13, você conta com acesso ao time da Alavanque para orientações, troca de experiências e suporte por chamadas de vídeo ou mensagens.</div>
-      <div class="p-wire">Em caso de necessidade, a assistência técnica poderá ser acionada para atendimento no local.</div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="center" style="background:var(--box);">
-    <span class="tag">CTA final da página</span>
-    <div class="h2-wire mx-auto" style="max-width:560px;">Veja a cotação da sua Dosadora G13</div>
-    <div class="p-wire mx-auto" style="max-width:560px;">Fale com a Alavanque pelo WhatsApp e entenda qual configuração faz mais sentido para sua produção.</div>
-    <div class="btn-row" style="justify-content:center;">
-      <div class="btn solid">Solicitar cotação no WhatsApp</div>
-      <div class="btn">Ver catálogo</div>
-    </div>
-  </section>
-
-  <footer class="sitefoot">
-    <span class="tag" style="position:static; display:inline-block; margin-bottom:10px;">Rodapé</span>
-    <div class="footer-grid">
-      <div>
-        <div class="box logo" style="margin-bottom:10px;">LOGO ALAVANQUE</div>
-        <div class="small-wire">Telefone: (11) 93298-1448</div>
-        <div class="small-wire">E-mail: contato@alavanqueequipamentos.com.br</div>
-        <div class="small-wire">Endereço: Rua Luiz Eduardo Taddei de Freitas, 66 — Residencial Parque dos Sinos, Jacareí — SP, 12328-509</div>
-      </div>
-      <div>
-        <div class="h3-wire">Navegação</div>
-        <div class="small-wire">Início</div>
-        <div class="small-wire">Dosadora G13</div>
-        <div class="small-wire">Quem Somos</div>
+        <div class="small-wire tab-jump" data-target="p1">Home</div>
+        <div class="small-wire tab-jump" data-target="p2">Quem Somos</div>
+        <div class="small-wire tab-jump" data-target="p3">Itens adicionais</div>
       </div>
       <div>
         <div class="h3-wire">Redes sociais</div>
@@ -736,25 +527,23 @@
 </div>
 
 <!-- ============================================================ -->
-<!-- PAGE 3 — QUEM SOMOS -->
+<!-- PÁGINA 2 — QUEM SOMOS -->
 <!-- ============================================================ -->
-<div class="page-frame" id="p3">
+<div class="page-frame" id="p2">
   <div class="phone-statusbar"><span>9:41</span><span>●●●● 5G 🔋100%</span></div>
-  <div class="device-label">Página 3 — Quem Somos</div>
+  <div class="device-label">Página 2 — Quem Somos <span class="note">sem alterações pedidas</span></div>
 
   <header class="sitehead">
     <div class="box logo">LOGO ALAVANQUE</div>
     <nav>
-      <div>Início</div>
-      <div>Dosadora G13</div>
-      <div>Quem Somos</div>
-      <div>Contato</div>
+      <div class="tab-jump" data-target="p1">Home</div>
+      <div class="current tab-jump" data-target="p2">Quem Somos</div>
+      <div class="tab-jump" data-target="p3">Itens adicionais</div>
     </nav>
     <div class="hamburger"><span></span><span></span><span></span></div>
     <div class="box cta-mini">WhatsApp</div>
   </header>
 
-  <!-- HERO -->
   <section>
     <span class="tag">Hero da página</span>
     <div class="center mx-auto" style="max-width:780px;">
@@ -765,7 +554,6 @@
     <div class="xbox" style="min-height:220px; margin-top:24px;"><span class="label">Foto — equipe / fábrica Jacareí</span></div>
   </section>
 
-  <!-- MISSÃO -->
   <section>
     <span class="tag">Nossa missão</span>
     <div class="hero-split">
@@ -779,7 +567,6 @@
     </div>
   </section>
 
-  <!-- VISÃO -->
   <section>
     <span class="tag">Nossa visão</span>
     <div class="hero-split">
@@ -792,7 +579,6 @@
     </div>
   </section>
 
-  <!-- VALORES -->
   <section>
     <span class="tag">Nossos valores</span>
     <div class="section-heading center">
@@ -812,7 +598,6 @@
     </div>
   </section>
 
-  <!-- HISTÓRIA -->
   <section>
     <span class="tag">Nossa história</span>
     <div class="hero-split">
@@ -826,7 +611,6 @@
     </div>
   </section>
 
-  <!-- COMPROMISSO -->
   <section>
     <span class="tag">Nosso compromisso</span>
     <div class="center mx-auto" style="max-width:720px;">
@@ -837,18 +621,16 @@
     </div>
   </section>
 
-  <!-- CTA FINAL -->
   <section class="center" style="background:var(--box);">
     <span class="tag">CTA final da página</span>
     <div class="h2-wire mx-auto" style="max-width:560px;">Vamos alavancar sua produção?</div>
     <div class="p-wire mx-auto" style="max-width:560px;">Conheça a Dosadora de Massas G13 e veja como ela pode ajudar sua empresa a produzir mais, padronizar melhor e crescer com mais eficiência.</div>
     <div class="btn-row" style="justify-content:center;">
-      <div class="btn">Conhecer a Dosadora G13</div>
+      <div class="btn tab-jump" data-target="p1">Conhecer a Dosadora G13</div>
       <div class="btn solid">Falar com a Alavanque no WhatsApp</div>
     </div>
   </section>
 
-  <!-- CONTATO -->
   <section>
     <span class="tag">Contato</span>
     <div class="grid grid-2">
@@ -877,9 +659,111 @@
       </div>
       <div>
         <div class="h3-wire">Navegação</div>
-        <div class="small-wire">Início</div>
-        <div class="small-wire">Dosadora G13</div>
-        <div class="small-wire">Quem Somos</div>
+        <div class="small-wire tab-jump" data-target="p1">Home</div>
+        <div class="small-wire tab-jump" data-target="p2">Quem Somos</div>
+        <div class="small-wire tab-jump" data-target="p3">Itens adicionais</div>
+      </div>
+      <div>
+        <div class="h3-wire">Redes sociais</div>
+        <div class="social-row"><div class="social-dot">FB</div><div class="social-dot">IG</div><div class="social-dot">YT</div></div>
+        <div class="small-wire" style="margin-top:8px;">@alavanque.equipamentos</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PÁGINA 3 — ITENS ADICIONAIS (estrutura provisória, sem copy definitivo) -->
+<!-- ============================================================ -->
+<div class="page-frame" id="p3">
+  <div class="phone-statusbar"><span>9:41</span><span>●●●● 5G 🔋100%</span></div>
+  <div class="device-label">Página 3 — Itens adicionais <span class="note">estrutura provisória — falta o texto definitivo, ver observação no chat</span></div>
+
+  <header class="sitehead">
+    <div class="box logo">LOGO ALAVANQUE</div>
+    <nav>
+      <div class="tab-jump" data-target="p1">Home</div>
+      <div class="tab-jump" data-target="p2">Quem Somos</div>
+      <div class="current tab-jump" data-target="p3">Itens adicionais</div>
+    </nav>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <div class="box cta-mini">WhatsApp</div>
+  </header>
+
+  <section>
+    <span class="tag">Hero da página</span>
+    <div class="center mx-auto" style="max-width:700px;">
+      <div class="h1-wire">Itens adicionais Alavanque</div>
+      <div class="p-wire muted">[texto a definir — peças de reposição, moldes extras e acessórios pra quem já tem a G13]</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">Grade de itens (conteúdo placeholder)</span>
+    <div class="grid grid-3">
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">Molde extra</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">Esteira avulsa</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">Bandeja avulsa</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">Peça de reposição</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">[item a definir]</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+      <div class="card center">
+        <div class="xbox" style="min-height:120px;"><span class="label">Foto — item</span></div>
+        <div class="h3-wire" style="margin-top:10px;">[item a definir]</div>
+        <div class="small-wire">[descrição a definir]</div>
+        <div class="btn" style="margin-top:10px;">Solicitar orçamento</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center" style="background:var(--box);">
+    <span class="tag">CTA final</span>
+    <div class="h2-wire mx-auto" style="max-width:560px;">Precisa de um item específico?</div>
+    <div class="p-wire mx-auto" style="max-width:560px;">Fale com a equipe da Alavanque pelo WhatsApp e confira a disponibilidade.</div>
+    <div class="btn-row" style="justify-content:center;">
+      <div class="btn solid">Solicitar cotação no WhatsApp</div>
+      <div class="btn tab-jump" data-target="p1">Ver a Dosadora G13</div>
+    </div>
+  </section>
+
+  <footer class="sitefoot">
+    <span class="tag" style="position:static; display:inline-block; margin-bottom:10px;">Rodapé</span>
+    <div class="footer-grid">
+      <div>
+        <div class="box logo" style="margin-bottom:10px;">LOGO ALAVANQUE</div>
+        <div class="small-wire">Telefone: (11) 93298-1448</div>
+        <div class="small-wire">E-mail: contato@alavanqueequipamentos.com.br</div>
+        <div class="small-wire">Endereço: Rua Luiz Eduardo Taddei de Freitas, 66 — Residencial Parque dos Sinos, Jacareí — SP, 12328-509</div>
+      </div>
+      <div>
+        <div class="h3-wire">Navegação</div>
+        <div class="small-wire tab-jump" data-target="p1">Home</div>
+        <div class="small-wire tab-jump" data-target="p2">Quem Somos</div>
+        <div class="small-wire tab-jump" data-target="p3">Itens adicionais</div>
       </div>
       <div>
         <div class="h3-wire">Redes sociais</div>
@@ -893,14 +777,16 @@
 <script>
   const tabs = document.querySelectorAll('.tab-btn');
   const pages = document.querySelectorAll('.page-frame');
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      pages.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.page).classList.add('active');
-      window.scrollTo({top:0, behavior:'instant'});
-    });
+
+  function activateTab(id){
+    tabs.forEach(b => b.classList.toggle('active', b.dataset.page === id));
+    pages.forEach(p => p.classList.toggle('active', p.id === id));
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  tabs.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.page)));
+  document.querySelectorAll('.tab-jump').forEach(el => {
+    el.addEventListener('click', () => activateTab(el.dataset.target));
   });
 
   document.getElementById('annotToggle').addEventListener('change', (e) => {
