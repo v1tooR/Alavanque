@@ -1,0 +1,31 @@
+<!-- @dsCard group="Components" viewport="700x320" subtitle="Barra de navegação e abas de conteúdo" name="Navegação & Abas" -->
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body style="padding:0;background:var(--color-surface)">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const NS = Object.values(window).find(v=>v&&typeof v==='object'&&typeof v.Button==='function')||{};
+const { Navbar, Tabs, Button } = NS;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
+    <Navbar
+      brand={<img src="../../assets/logo-alavanque.png" alt="Alavanque" style={{height:30}} />}
+      links={[{label:'Produtos',active:true},{label:'Como funciona'},{label:'Especificações'},{label:'Suporte'}]}
+      actions={<Button variant="accent" size="sm">Cotação</Button>}
+    />
+    <div style={{padding:'20px 32px'}}>
+      <Tabs defaultValue="esteira" tabs={[
+        {id:'esteira',label:'Método esteira',content:<p>A massa moldada cai diretamente na esteira de 19 cm por 2 metros, em material atóxico. Fácil de operar por uma ou duas pessoas.</p>},
+        {id:'bandeja',label:'Método bandeja',content:<p>A massa cai direto na bandeja, que já pode ir ao armário ou freezer sem trocar de recipiente. Mais rápido e prático.</p>},
+        {id:'regulagem',label:'Regulagem',content:<p>Regulagem manual de peso: com um giro da peça, ajuste o produto entre 7g e 120g.</p>},
+      ]} />
+    </div>
+  </>
+);
+</script>
+</body></html>

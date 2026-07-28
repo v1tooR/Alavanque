@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x330" subtitle="Cards de benefício e modal de cotação" name="Cards & Dialog" -->
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body style="padding:28px;background:var(--color-bg)">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const NS = Object.values(window).find(v=>v&&typeof v==='object'&&typeof v.Button==='function')||{};
+const { Card, Dialog, Button, Tag } = NS;
+function Demo(){
+  const [open,setOpen]=React.useState(false);
+  return (
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18,alignItems:'start'}}>
+      <Card elevation="md" title="Mais produtividade">Produza até 70 kg por hora, dependendo do método, tipo de massa e organização da operação.</Card>
+      <Card elevation="md" interactive title="Fácil higienização"
+        footer={<div style={{marginTop:14}}><Tag variant="accent">Peças removíveis</Tag></div>}>
+        Cilindro, molde e êmbolo em material atóxico, laváveis com água e detergente neutro.
+      </Card>
+      <div style={{gridColumn:'1 / -1'}}>
+        <Button variant="accent" onClick={()=>setOpen(true)}>Abrir modal de cotação</Button>
+      </div>
+      <Dialog open={open} onClose={()=>setOpen(false)} title="Solicitar cotação"
+        actions={<><Button variant="ghost" onClick={()=>setOpen(false)}>Cancelar</Button><Button variant="accent" onClick={()=>setOpen(false)}>Enviar</Button></>}>
+        Deixe seu WhatsApp que a equipe da Alavanque retorna com a cotação do seu equipamento.
+      </Dialog>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>

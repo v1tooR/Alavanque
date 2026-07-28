@@ -1,0 +1,23 @@
+<!-- @dsCard group="Components" viewport="700x260" subtitle="Campos de texto e seletor com rótulo, dica e erro" name="Formulários" -->
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body style="padding:28px;background:var(--color-surface)">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const NS = Object.values(window).find(v=>v&&typeof v==='object'&&typeof v.Button==='function')||{};
+const { Input, Select } = NS;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+    <Input label="Nome" placeholder="Seu nome" required />
+    <Input label="WhatsApp" placeholder="(00) 00000-0000" hint="Retornamos com a cotação" />
+    <Select label="Produto de interesse" placeholder="Selecione" options={["Dosadora G13","Moldes especiais","Esteira manual"]} />
+    <Input label="E-mail" type="email" defaultValue="cliente@" error="E-mail inválido" />
+  </div>
+);
+</script>
+</body></html>

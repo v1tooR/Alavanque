@@ -1,0 +1,34 @@
+<!-- @dsCard group="Components" viewport="700x200" subtitle="Etiquetas de especificação e contadores" name="Tags & Badges" -->
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body style="padding:28px;background:var(--color-surface)">
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const NS = Object.values(window).find(v=>v&&typeof v==='object'&&typeof v.Button==='function')||{};
+const { Tag, Badge } = NS;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
+    <div style={{display:'flex',gap:10,flexWrap:'wrap',marginBottom:22}}>
+      <Tag variant="accent">70 kg/hora</Tag>
+      <Tag variant="primary">Máquina de bancada</Tag>
+      <Tag variant="success">Em estoque</Tag>
+      <Tag variant="warning">Sob consulta</Tag>
+      <Tag variant="danger">Esgotado</Tag>
+      <Tag variant="outline">7g a 120g</Tag>
+      <Tag variant="neutral">Bancada</Tag>
+    </div>
+    <div style={{display:'flex',gap:14,alignItems:'center'}}>
+      <Badge>3</Badge>
+      <Badge variant="primary">12x</Badge>
+      <Badge variant="neutral">novo</Badge>
+      <span style={{display:'inline-flex',alignItems:'center',gap:8,fontFamily:'var(--font-body)',fontSize:14}}><Badge dot variant="success" /> Disponível</span>
+    </div>
+  </>
+);
+</script>
+</body></html>

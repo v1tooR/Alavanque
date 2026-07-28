@@ -1,0 +1,87 @@
+/* ALAVANQUE — Color tokens
+   Brand DNA: azul #006098 (confiança/engenharia) + laranja #ff5f19 (energia/ação).
+   Ramps built on a shared perceptual lightness scale. */
+:root {
+  /* Primary — Azul Alavanque */
+  --blue-50:  #e8f1f8;
+  --blue-100: #cfe3f1;
+  --blue-200: #9fc6e3;
+  --blue-300: #6aa6d1;
+  --blue-400: #3585bd;
+  --blue-500: #006098; /* base */
+  --blue-600: #005688;
+  --blue-700: #024a72;
+  --blue-800: #083a58;
+  --blue-900: #0b2c42;
+
+  /* Accent — Laranja Alavanque */
+  --orange-50:  #fff1ea;
+  --orange-100: #ffddca;
+  --orange-200: #ffb996;
+  --orange-300: #ff9560;
+  --orange-400: #ff7838;
+  --orange-500: #ff5f19; /* base */
+  --orange-600: #ed4e0a;
+  --orange-700: #c53d07;
+  --orange-800: #99310c;
+  --orange-900: #7a2a0f;
+
+  /* Neutrals — slate levemente azulado */
+  --neutral-0:   #ffffff;
+  --neutral-50:  #f6f8fa;
+  --neutral-100: #eef1f5;
+  --neutral-200: #e0e5ec;
+  --neutral-300: #cbd3dd;
+  --neutral-400: #9aa6b4;
+  --neutral-500: #6b7683;
+  --neutral-600: #4c5661;
+  --neutral-700: #363e47;
+  --neutral-800: #232a31;
+  --neutral-900: #141a1f;
+  --neutral-950: #0b0f12;
+
+  /* Semantic status */
+  --success-50:  #e7f6ee;
+  --success-500: #16a35a;
+  --success-700: #0f7a43;
+  --warning-50:  #fff5e5;
+  --warning-500: #f5a623;
+  --warning-700: #b9770c;
+  --danger-50:   #fdeaea;
+  --danger-500:  #e02424;
+  --danger-700:  #a81616;
+
+  /* ===== Semantic aliases ===== */
+  --color-bg:            var(--neutral-50);
+  --color-surface:       var(--neutral-0);
+  --color-surface-muted: var(--neutral-100);
+  --color-surface-inverse: var(--blue-900);
+
+  --color-text:          var(--neutral-900);
+  --color-text-secondary:var(--neutral-600);
+  --color-text-muted:    var(--neutral-500);
+  --color-text-inverse:  var(--neutral-0);
+  --color-text-on-accent:#ffffff;
+  --color-text-on-primary:#ffffff;
+
+  --color-border:        var(--neutral-200);
+  --color-border-strong: var(--neutral-300);
+
+  --color-primary:        var(--blue-500);
+  --color-primary-hover:  var(--blue-600);
+  --color-primary-active: var(--blue-700);
+  --color-primary-soft:   var(--blue-50);
+
+  --color-accent:         var(--orange-500);
+  --color-accent-hover:   var(--orange-600);
+  --color-accent-active:  var(--orange-700);
+  --color-accent-soft:    var(--orange-50);
+
+  --color-focus: var(--orange-500);
+
+  --color-success: var(--success-500);
+  --color-warning: var(--warning-500);
+  --color-danger:  var(--danger-500);
+
+  --color-selection: var(--orange-200);
+}
