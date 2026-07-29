@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quem Somos | Alavanque Equipamentos para Gastronomia</title>
+  <meta name="description" content="Conheça a Alavanque, fabricante de equipamentos para gastronomia em Jacareí, SP. Engenharia acessível para pequenos e médios produtores crescerem com produtividade e padrão.">
+  <meta name="theme-color" content="#0b2c42">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="inner-pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <nav class="nav" id="siteNav" aria-label="Navegação principal">
+    <div class="nav__in">
+      <a class="nav__brand" href="index.html" aria-label="Alavanque — página inicial">
+        <img class="nav__logo" src="assets/logo-alavanque.png" alt="Alavanque — Equipamentos para Gastronomia">
+      </a>
+      <div class="nav__track" id="navTrack">
+        <span class="nav__lamp" id="navLamp" aria-hidden="true"></span>
+        <ul class="nav__links">
+          <li><a class="av-nav__link" data-navlink href="index.html">Home</a></li>
+          <li><a class="av-nav__link av-nav__link--active" data-navlink href="quem-somos.html" aria-current="page">Quem Somos</a></li>
+          <li><a class="av-nav__link" data-navlink href="itens-adicionais.html">Itens adicionais</a></li>
+        </ul>
+      </div>
+      <div class="nav__right">
+        <a class="av-btn av-btn--accent av-btn--sm" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20da%20Alavanque." target="_blank" rel="noopener">
+          <i data-lucide="message-circle" aria-hidden="true"></i> Falar no WhatsApp
+        </a>
+        <button class="nav__burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" onclick="openMobileMenu()">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mmenu" id="mobileMenu" data-open="false" inert>
+    <div class="mmenu__backdrop" onclick="closeMobileMenu()"></div>
+    <div class="mmenu__panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+      <div class="mmenu__head">
+        <img class="nav__logo" src="assets/logo-alavanque.png" alt="Alavanque" style="height:24px">
+        <button class="mmenu__close" type="button" aria-label="Fechar menu" onclick="closeMobileMenu()">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <a href="index.html">Home</a>
+      <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+      <a href="itens-adicionais.html">Itens adicionais</a>
+      <a class="av-btn av-btn--accent av-btn--block" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20da%20Alavanque." target="_blank" rel="noopener">
+        <i data-lucide="message-circle" aria-hidden="true"></i> Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <main id="conteudo" tabindex="-1">
+    <header class="page-hero">
+      <div class="wrap">
+        <div class="page-hero__grid">
+          <div class="page-hero__copy">
+            <span class="eyebrow" data-enter style="--i:0; color:var(--orange-400)">Quem somos</span>
+            <h1 data-enter style="--i:1">Engenharia acessível para quem quer crescer produzindo melhor</h1>
+            <p class="page-hero__lead" data-enter style="--i:2">A Alavanque desenvolve equipamentos robustos e eficientes para pequenos e médios negócios aumentarem a produtividade sem perder o controle da operação.</p>
+            <div class="page-hero__actions" data-enter style="--i:3">
+              <a class="av-btn av-btn--accent av-btn--lg" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20da%20Alavanque." target="_blank" rel="noopener">
+                <i data-lucide="message-circle" aria-hidden="true"></i> Conversar com a Alavanque
+              </a>
+              <a class="av-btn av-btn--secondary av-btn--lg page-hero__secondary" href="index.html">
+                <i data-lucide="arrow-right" aria-hidden="true"></i> Conhecer a Dosadora G13
+              </a>
+            </div>
+            <div class="page-hero__proof" data-enter style="--i:4" aria-label="Informações sobre a empresa">
+              <span><i data-lucide="map-pin" aria-hidden="true"></i> Jacareí, São Paulo</span>
+              <span><i data-lucide="wrench" aria-hidden="true"></i> Projeto e fabricação nacional</span>
+            </div>
+          </div>
+          <div class="hero-collage" data-enter style="--i:2" aria-label="Equipamento Alavanque em uma operação real">
+            <figure class="hero-collage__main">
+              <img src="assets/maquina8.jpg" width="1365" height="2048" alt="Dosadora G13 Alavanque instalada em bancada">
+              <figcaption class="hero-collage__label">
+                <i data-lucide="map-pinned" aria-hidden="true"></i>
+                Equipamentos pensados para a realidade de quem produz todos os dias
+              </figcaption>
+            </figure>
+            <figure class="hero-collage__small">
+              <img src="assets/maquina5.jpg" width="768" height="524" alt="Operação da Dosadora G13 com produtos seguindo para a bandeja">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="proposito-title">
+      <div class="wrap">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Nosso propósito</span>
+          <h2 id="proposito-title">Crescer não deve ser privilégio de grandes indústrias</h2>
+          <p>Aproximamos engenharia, praticidade e custo-benefício da rotina de produtores que precisam dar o próximo passo com segurança.</p>
+        </div>
+        <div class="purpose-grid" data-reveal-group>
+          <article class="purpose-card">
+            <span class="purpose-card__icon"><i data-lucide="target" aria-hidden="true"></i></span>
+            <h3>Nossa missão</h3>
+            <p>Projetar e fabricar equipamentos que reduzam o trabalho manual, economizem tempo e ajudem pequenas e médias empresas a produzir com mais eficiência e controle.</p>
+          </article>
+          <article class="purpose-card">
+            <span class="purpose-card__icon"><i data-lucide="telescope" aria-hidden="true"></i></span>
+            <h3>Nossa visão</h3>
+            <p>Tornar equipamentos produtivos mais acessíveis, simples de operar e alinhados à realidade de quem ainda não precisa — ou não pode — investir em uma linha industrial completa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted" aria-labelledby="valores-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Como trabalhamos</span>
+          <h2 id="valores-title">Soluções que começam no problema real do cliente</h2>
+          <p>Cada escolha de projeto deve facilitar a rotina produtiva e apoiar o crescimento do negócio.</p>
+        </div>
+        <div class="values-grid" data-reveal-group>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="trending-up" aria-hidden="true"></i></span>
+            <h3>Produtividade</h3>
+            <p>Mais capacidade para atender pedidos e abrir espaço para crescer.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="ruler" aria-hidden="true"></i></span>
+            <h3>Padronização</h3>
+            <p>Processos mais previsíveis para entregar produtos consistentes.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="hand" aria-hidden="true"></i></span>
+            <h3>Facilidade de uso</h3>
+            <p>Operação direta para começar a automatizar sem complicação.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="shield-check" aria-hidden="true"></i></span>
+            <h3>Robustez</h3>
+            <p>Equipamentos preparados para acompanhar a rotina de produção.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="headset" aria-hidden="true"></i></span>
+            <h3>Suporte próximo</h3>
+            <p>Orientação por mensagem ou vídeo quando você precisar.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="wallet" aria-hidden="true"></i></span>
+            <h3>Custo-benefício</h3>
+            <p>Investimento compatível com a próxima etapa do negócio.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon"><i data-lucide="timer" aria-hidden="true"></i></span>
+            <h3>Eficiência</h3>
+            <p>Menos tempo no repetitivo e mais atenção ao que faz a empresa avançar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="historia-title">
+      <div class="wrap">
+        <div class="split split--reverse">
+          <div class="photo-frame" data-reveal>
+            <img src="assets/maquina3.jpg" width="751" height="1014" loading="lazy" alt="Projeto da Dosadora G13 Alavanque, produto com patente requerida">
+            <div class="photo-frame__badge">
+              <i data-lucide="badge-check" aria-hidden="true"></i>
+              Dosadora G13 com pedido de patente junto ao INPI
+            </div>
+          </div>
+          <div class="split__copy" data-reveal>
+            <span class="eyebrow">Nossa história</span>
+            <h2 id="historia-title">Engenharia a serviço de quem produz</h2>
+            <p>A Alavanque nasceu da experiência com equipamentos e linhas de produção e de uma pergunta prática: como levar mais capacidade a empresas que ainda não precisam de uma estrutura industrial completa?</p>
+            <p>Com uma equipe técnica especializada e o apoio de fornecedores parceiros da região de Jacareí, desenvolvemos soluções para quem quer crescer sem perder o controle da qualidade, do processo e do investimento.</p>
+            <div class="story-points">
+              <div class="story-point">
+                <span class="story-point__number">01</span>
+                <div><strong>Entender a rotina</strong><span>O projeto parte dos gargalos que consomem tempo no dia a dia.</span></div>
+              </div>
+              <div class="story-point">
+                <span class="story-point__number">02</span>
+                <div><strong>Simplificar a engenharia</strong><span>O equipamento entrega o que a operação precisa, com uso e manutenção diretos.</span></div>
+              </div>
+              <div class="story-point">
+                <span class="story-point__number">03</span>
+                <div><strong>Acompanhar o crescimento</strong><span>Suporte e orientação ajudam o cliente a aproveitar melhor a solução.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="commitment" aria-labelledby="compromisso-title">
+      <div class="wrap commitment__in">
+        <div data-reveal>
+          <span class="eyebrow" style="color:var(--orange-400)">Nosso compromisso</span>
+          <h2 id="compromisso-title">Ajudar você a produzir melhor para vender mais</h2>
+          <p>Quando o processo deixa de depender de horas de trabalho repetitivo, você ganha liberdade para cuidar dos clientes, organizar a operação e planejar o próximo passo do negócio.</p>
+        </div>
+        <div class="commitment__aside" data-reveal-group aria-label="Compromissos da Alavanque">
+          <span><i data-lucide="messages-square" aria-hidden="true"></i> Atendimento humano</span>
+          <span><i data-lucide="settings-2" aria-hidden="true"></i> Solução prática</span>
+          <span><i data-lucide="bar-chart-3" aria-hidden="true"></i> Foco no seu resultado</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted" aria-labelledby="contato-title">
+      <div class="wrap">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Contato</span>
+          <h2 id="contato-title">Fale direto com a equipe</h2>
+          <p>Conte o que você produz e qual desafio quer resolver. A Alavanque ajuda a avaliar o próximo passo.</p>
+        </div>
+        <div class="contact-strip" data-reveal-group>
+          <div class="contact-strip__item">
+            <span>Endereço</span>
+            <address>Rua Luiz Eduardo Taddei de Freitas, 66<br>Residencial Parque dos Sinos, Jacareí — SP, 12328-509</address>
+          </div>
+          <div class="contact-strip__item">
+            <span>Telefone e WhatsApp</span>
+            <a href="tel:+5511932981448">(11) 93298-1448</a>
+          </div>
+          <div class="contact-strip__item">
+            <span>E-mail</span>
+            <a href="mailto:contato@alavanqueequipamentos.com.br">contato@alavanqueequipamentos.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="cta-title">
+      <div class="wrap" data-reveal>
+        <span class="eyebrow" style="color:var(--orange-400)">Próximo passo</span>
+        <h2 id="cta-title">Vamos alavancar sua produção?</h2>
+        <p>Conheça a Dosadora G13 ou fale com a equipe para entender qual solução combina com o momento do seu negócio.</p>
+        <div class="final-cta__actions">
+          <a class="av-btn av-btn--accent av-btn--lg" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20entender%20como%20a%20Alavanque%20pode%20ajudar%20minha%20produ%C3%A7%C3%A3o." target="_blank" rel="noopener">
+            <i data-lucide="message-circle" aria-hidden="true"></i> Falar com a Alavanque
+          </a>
+          <a class="av-btn av-btn--secondary av-btn--lg page-hero__secondary" href="index.html">
+            <i data-lucide="arrow-right" aria-hidden="true"></i> Conhecer a Dosadora G13
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <img class="foot__logo" src="assets/logo-alavanque-white.png" alt="Alavanque">
+          <p>Equipamentos para gastronomia que ajudam pequenos e médios produtores a crescer com padrão e produtividade.</p>
+        </div>
+        <div>
+          <h2>Navegação</h2>
+          <div class="foot__links">
+            <a href="index.html">Home</a>
+            <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+            <a href="itens-adicionais.html">Itens adicionais</a>
+          </div>
+        </div>
+        <div>
+          <h2>Produto</h2>
+          <div class="foot__links">
+            <a href="index.html#beneficios">Benefícios da G13</a>
+            <a href="index.html#como">Como funciona</a>
+            <a href="index.html#especificacoes">Especificações</a>
+          </div>
+        </div>
+        <div>
+          <h2>Contato</h2>
+          <div class="foot__links">
+            <a href="https://wa.me/5511932981448" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="mailto:contato@alavanqueequipamentos.com.br">E-mail</a>
+            <a href="https://instagram.com/alavanque.equipamentos" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot__bottom">
+        <span>© 2026 Alavanque — Equipamentos para Gastronomia</span>
+        <span>Feito com o Alavanque Design System</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" id="fab" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20da%20Alavanque." target="_blank" rel="noopener" aria-label="Falar com a Alavanque no WhatsApp">
+    <i data-lucide="message-circle" aria-hidden="true"></i>
+  </a>
+
+  <div class="mobile-cta" id="mobileCta" inert>
+    <div class="mobile-cta__copy">Fale com a Alavanque<span>Atendimento humano pelo WhatsApp</span></div>
+    <a class="av-btn av-btn--accent av-btn--sm" href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20conhecer%20melhor%20as%20solu%C3%A7%C3%B5es%20da%20Alavanque." target="_blank" rel="noopener">
+      <i data-lucide="message-circle" aria-hidden="true"></i> Conversar
+    </a>
+  </div>
+
+  <script src="inner-pages.js"></script>
+</body>
+</html>

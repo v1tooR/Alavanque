@@ -1119,17 +1119,15 @@
 <!-- NAV -->
 <nav class="nav" id="siteNav" aria-label="Navegação principal">
   <div class="nav__in">
-    <a class="nav__brand" href="#produto" aria-label="Alavanque — início">
+    <a class="nav__brand" href="index.html" aria-label="Alavanque — página inicial">
       <img class="nav__logo" src="assets/logo-alavanque.png" alt="Alavanque — Equipamentos para Gastronomia">
     </a>
     <div class="nav__track" id="navTrack">
       <span class="nav__lamp" id="navLamp" aria-hidden="true"></span>
       <ul class="nav__links" id="navLinks">
-        <li><a class="av-nav__link av-nav__link--active" data-navlink href="#produto" aria-current="page">Produto</a></li>
-        <li><a class="av-nav__link" data-navlink href="#beneficios">Benefícios</a></li>
-        <li><a class="av-nav__link" data-navlink href="#como">Como funciona</a></li>
-        <li><a class="av-nav__link" data-navlink href="#tecnico">Técnico</a></li>
-        <li><a class="av-nav__link" data-navlink href="#suporte">Suporte</a></li>
+        <li><a class="av-nav__link av-nav__link--active" data-navlink href="index.html" aria-current="page">Home</a></li>
+        <li><a class="av-nav__link" data-navlink href="quem-somos.html">Quem Somos</a></li>
+        <li><a class="av-nav__link" data-navlink href="itens-adicionais.html">Itens adicionais</a></li>
       </ul>
     </div>
     <div class="nav__right">
@@ -1151,11 +1149,9 @@
       <img class="nav__logo" src="assets/logo-alavanque.png" alt="Alavanque" style="height:24px">
       <button class="mmenu__close" type="button" aria-label="Fechar menu" onclick="closeMobileMenu()"><i data-lucide="x"></i></button>
     </div>
-    <a href="#produto" onclick="closeMobileMenu()">Produto</a>
-    <a href="#beneficios" onclick="closeMobileMenu()">Benefícios</a>
-    <a href="#como" onclick="closeMobileMenu()">Como funciona</a>
-    <a href="#tecnico" onclick="closeMobileMenu()">Técnico</a>
-    <a href="#suporte" onclick="closeMobileMenu()">Suporte</a>
+    <a href="index.html" aria-current="page" onclick="closeMobileMenu()">Home</a>
+    <a href="quem-somos.html" onclick="closeMobileMenu()">Quem Somos</a>
+    <a href="itens-adicionais.html" onclick="closeMobileMenu()">Itens adicionais</a>
     <button class="av-btn av-btn--accent av-btn--block" type="button" onclick="closeMobileMenu(); openQuote();">
       <i data-lucide="message-circle" class="icon"></i> Solicitar cotação
     </button>
@@ -1721,7 +1717,7 @@
         <p style="max-width:34ch;font-size:var(--text-sm)">Equipamentos para gastronomia que ajudam pequenos e médios produtores a crescer com padrão e produtividade.</p>
       </div>
       <div><h5>Produto</h5><a href="#produto">Dosadora G13</a><a href="#beneficios">Benefícios</a><a href="#especificacoes">Especificações</a><a href="#moldes">Moldes</a></div>
-      <div><h5>Suporte</h5><a href="#suporte">Garantia</a><a href="#suporte">Instalação</a><a href="#suporte">Assistência técnica</a></div>
+      <div><h5>Alavanque</h5><a href="quem-somos.html">Quem Somos</a><a href="itens-adicionais.html">Itens adicionais</a><a href="#suporte">Suporte</a></div>
       <div><h5>Contato</h5><a href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@alavanqueequipamentos.com.br">E-mail</a><a href="https://instagram.com/alavanque.equipamentos" target="_blank" rel="noopener">Instagram</a></div>
     </div>
     <div class="foot__bottom">
@@ -2510,7 +2506,8 @@
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const id = entry.target.id;
-        setActiveNav(navLinkEls.find(link => link.getAttribute('href') === '#' + id));
+        const matchingLink = navLinkEls.find(link => link.getAttribute('href') === '#' + id);
+        if (matchingLink) setActiveNav(matchingLink);
       });
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
     spySections.forEach(s => spyObserver.observe(s));
