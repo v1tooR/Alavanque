@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alavanque — Dosadora G13 | Produza mais, padronize melhor</title>
-<meta name="description" content="Dosadora de Massas G13 Alavanque: molde e dose até 70 kg/h com padrão profissional. Pão de queijo, broas, chipas, biscoitos e mais. Peça sua cotação.">
+<meta name="description" content="Dosadora de Massas G13 Alavanque: molde e dose +70 kg/h com padrão profissional. Pão de queijo, broas, chipas e bolachas amanteigadas. Peça sua cotação.">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/lucide@latest"></script>
+<script src="video.js" defer></script>
 <style>
   html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1.25rem); }
   body { background: var(--color-surface); overflow-x: hidden; }
@@ -372,6 +373,22 @@
     .step.is-active .step__node { transform:none; box-shadow:0 0 0 5px var(--color-accent-soft); }
     .process__detail { display:none; }
   }
+  .process__watch {
+    display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1fr); align-items:center; gap:var(--space-8);
+    margin-top:var(--space-8); padding:var(--space-6);
+    border:1px solid var(--color-border); border-radius:var(--radius-xl); background:var(--color-surface);
+    box-shadow:var(--shadow-xs);
+  }
+  .process__watch h3 { margin-top:var(--space-2); font-size:var(--text-2xl); }
+  .process__watch p { margin-top:var(--space-3); color:var(--color-text-secondary); font-size:var(--text-base); line-height:var(--leading-relaxed); }
+  .process__watch-hint {
+    display:inline-flex; align-items:center; gap:.45rem; margin-top:var(--space-4);
+    color:var(--color-text-muted); font-size:var(--text-xs);
+  }
+  .process__watch-hint svg { width:15px; height:15px; color:var(--color-accent); }
+  @media (max-width: 820px) {
+    .process__watch { grid-template-columns:1fr; gap:var(--space-5); }
+  }
 
   .band { background: var(--blue-900); color:#fff; }
   .band h2, .band h3 { color:#fff; }
@@ -401,6 +418,14 @@
   .video__copy > p { color:rgba(255,255,255,.8); font-size:var(--text-lg); margin-top:var(--space-4); }
   .video__note { display:inline-flex; align-items:center; gap:.5rem; margin-top:var(--space-5); color:rgba(255,255,255,.62); font-size:var(--text-xs); font-weight:var(--weight-semibold); }
   .video__note svg { width:15px; height:15px; color:var(--orange-400); }
+  .video__channel {
+    display:flex; width:max-content; max-width:100%; align-items:center; gap:.5rem; margin-top:var(--space-4);
+    padding:.6rem 1rem; border:1px solid rgba(255,255,255,.28); border-radius:var(--radius-pill);
+    color:#fff; font:var(--weight-bold) var(--text-xs)/1 var(--font-display);
+    transition:background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .video__channel:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.55); color:#fff; transform:translateY(-2px); }
+  .video__channel svg { width:16px; height:16px; color:var(--orange-400); }
   .video__frame { position: relative; border-radius: var(--radius-xl); overflow:hidden; aspect-ratio: 16/9; box-shadow:0 32px 72px -28px rgba(0,0,0,.72); border:1px solid rgba(255,255,255,.2); background:var(--blue-900); }
   .video__frame > img { transition:transform .7s var(--ease-out), filter .5s var(--ease-out); }
   .video__frame:hover > img { transform:scale(1.035); filter:saturate(1.08); }
@@ -417,6 +442,7 @@
     .video-band .two { gap:var(--space-10); }
     .video__copy { max-width:42rem; margin-inline:auto; text-align:center; }
     .video__note { justify-content:center; }
+    .video__channel { margin-inline:auto; }
     .video__frame { width:100%; max-width:720px; margin-inline:auto; }
     .video-band.is-bg-ready .video-band__bg { opacity:.2; }
     .video-band::before { background:linear-gradient(180deg, rgba(11,44,66,.95), rgba(11,44,66,.88)); }
@@ -497,6 +523,16 @@
   }
   .applications__meta-item small { color:var(--color-text-muted); font-size:.67rem; text-transform:uppercase; letter-spacing:.05em; }
   .applications__meta-item strong { color:var(--blue-800); font-family:var(--font-display); font-size:var(--text-xs); }
+  .applications__detail-actions { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-4); margin-top:var(--space-4); }
+  .applications__detail-link {
+    display:inline-flex; align-items:center; gap:.35rem;
+    color:var(--color-primary); font:var(--weight-bold) var(--text-xs)/1 var(--font-display);
+    text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:border-color var(--dur-fast) var(--ease-out);
+  }
+  .applications__detail-link:hover { border-bottom-color:currentColor; }
+  .applications__detail-link svg { width:14px; height:14px; transition:transform var(--dur-fast) var(--ease-out); }
+  .applications__detail-link:hover svg { transform:translateX(3px); }
   .applications__tip {
     display:flex; align-items:flex-start; gap:.55rem; margin-top:var(--space-4);
     color:var(--color-text-secondary); font-size:var(--text-xs); line-height:var(--leading-relaxed);
@@ -517,6 +553,23 @@
     transition:transform .8s var(--ease-out), filter .5s var(--ease-out);
   }
   .applications__figure:hover .applications__image { transform:scale(1.025); filter:saturate(1.04) contrast(1.02); }
+  /* sem fill-mode: ao terminar, o zoom do hover volta a funcionar */
+  .applications__image.is-changing { animation:applicationImageIn .45s var(--ease-out); }
+  @keyframes applicationImageIn { from { opacity:.25; transform:scale(1.035); } to { opacity:1; transform:none; } }
+  .applications__thumbs { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:var(--space-3); margin-top:var(--space-3); }
+  .applications__thumb {
+    position:relative; overflow:hidden; aspect-ratio:1; padding:0; cursor:pointer;
+    border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-surface);
+    transition:border-color var(--dur-fast) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  }
+  .applications__thumb img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .5s var(--ease-out), filter var(--dur-base) var(--ease-out); filter:saturate(.82); }
+  .applications__thumb:hover { transform:translateY(-3px); border-color:var(--blue-200); box-shadow:var(--shadow-md); }
+  .applications__thumb:hover img { transform:scale(1.06); filter:saturate(1); }
+  .applications__thumb:focus-visible { outline:3px solid rgba(255,95,25,.38); outline-offset:2px; }
+  .applications__thumb[aria-checked="true"] {
+    border-color:var(--color-accent); box-shadow:0 0 0 2px rgba(255,95,25,.22), var(--shadow-sm);
+  }
+  .applications__thumb[aria-checked="true"] img { filter:saturate(1.04); }
   .applications__badge {
     position:absolute; z-index:2; top:var(--space-4); right:var(--space-4);
     display:inline-flex; align-items:center; gap:.45rem; padding:.55rem .75rem;
@@ -559,6 +612,7 @@
     .applications__caption { left:var(--space-4); right:var(--space-4); bottom:var(--space-4); }
     .applications__caption strong { font-size:var(--text-xl); }
     .applications__badge { top:var(--space-3); right:var(--space-3); }
+    .applications__thumbs { gap:var(--space-2); }
     .applications__proof-item { padding:var(--space-3); align-items:flex-start; }
   }
   @media (max-width: 430px) {
@@ -759,82 +813,79 @@
     max-width:60ch; margin:var(--space-4) auto 0;
     color:var(--color-text-secondary); font-size:var(--text-lg); line-height:var(--leading-relaxed);
   }
-  .mold-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-5); }
-  .mold-option {
-    position:relative; min-width:0; overflow:hidden; padding:0; border:1px solid var(--color-border);
-    border-radius:var(--radius-xl); background:var(--color-surface); color:var(--color-text);
-    cursor:pointer; text-align:left; box-shadow:var(--shadow-xs);
+  .molds__top {
+    display:flex; align-items:center; justify-content:space-between; gap:var(--space-6);
+    margin-bottom:var(--space-6);
+  }
+  .molds__status {
+    display:inline-flex; align-items:baseline; gap:.3rem; padding:.48rem .8rem; border-radius:var(--radius-pill);
+    background:var(--color-primary-soft); color:var(--color-text-secondary); font:600 var(--text-xs)/1 var(--font-display);
+  }
+  .molds__status strong { color:var(--color-primary); font-size:var(--text-sm); }
+  .molds__progress { flex:1; max-width:220px; height:3px; border-radius:var(--radius-pill); background:var(--color-border); overflow:hidden; }
+  .molds__progress span { display:block; height:100%; width:10%; border-radius:inherit; background:var(--color-accent); transition:width var(--dur-base) var(--ease-out); }
+  .molds__arrows { display:flex; gap:var(--space-2); }
+  .molds__arrow {
+    width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--color-border-strong); border-radius:50%; background:var(--color-surface); color:var(--color-text);
+    cursor:pointer; transition:color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .molds__arrow:hover:not(:disabled) { color:#fff; background:var(--color-primary); border-color:var(--color-primary); transform:translateY(-2px); }
+  .molds__arrow:disabled { opacity:.32; cursor:not-allowed; }
+  .molds__arrow svg { width:19px; height:19px; }
+  .molds__viewport { position:relative; overflow:hidden; margin:0 -8px; padding:0 8px; }
+  .mold-track {
+    display:flex; gap:var(--space-5); overflow-x:auto; overscroll-behavior-inline:contain;
+    scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none;
+    padding:6px 8px var(--space-6) 2px; cursor:grab;
+  }
+  .mold-track::-webkit-scrollbar { display:none; }
+  .mold-track.is-dragging { cursor:grabbing; scroll-behavior:auto; scroll-snap-type:none; user-select:none; }
+  .mold-track:focus-visible { outline:3px solid rgba(255,95,25,.32); outline-offset:4px; border-radius:var(--radius-lg); }
+  .mold-slide {
+    position:relative; display:flex; flex-direction:column; flex:0 0 calc((100% - (var(--space-5) * 2)) / 3);
+    min-width:0; overflow:hidden; scroll-snap-align:start; scroll-snap-stop:always;
+    border:1px solid var(--color-border); border-radius:var(--radius-xl);
+    background:var(--color-surface); text-align:left; box-shadow:var(--shadow-xs);
     transition:border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
   }
-  .mold-option:hover { border-color:var(--blue-200); transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-  .mold-option[aria-checked="true"] { border-color:var(--color-primary); box-shadow:0 0 0 3px rgba(0,96,152,.1), var(--shadow-md); }
-  .mold-option__check {
-    position:absolute; z-index:3; top:var(--space-3); right:var(--space-3); width:32px; height:32px;
-    display:grid; place-items:center; border:1px solid rgba(255,255,255,.65); border-radius:50%;
-    background:rgba(255,255,255,.9); color:var(--color-primary); box-shadow:var(--shadow-sm);
-    opacity:0; transform:scale(.75); transition:opacity var(--dur-fast) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  .mold-slide:hover { border-color:var(--blue-200); transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .mold-slide--custom {
+    border-style:dashed; border-color:var(--blue-200);
+    background:linear-gradient(150deg, var(--blue-50), var(--color-surface) 62%);
   }
-  .mold-option[aria-checked="true"] .mold-option__check { opacity:1; transform:scale(1); }
-  .mold-option__check svg { width:17px; height:17px; }
-  .mold-option__media {
-    position:relative; display:block; overflow:hidden; aspect-ratio:4/3; margin:var(--space-3);
-    border-radius:var(--radius-lg); background:linear-gradient(145deg, #f2f5f8, #e6ebf0);
+  .mold-slide--custom:hover { border-color:var(--color-primary); }
+  .mold-slide__media {
+    position:relative; display:grid; place-items:center; flex:1 1 auto;
+    overflow:hidden; aspect-ratio:16/9; margin:var(--space-3);
+    border:1px solid var(--color-border); border-radius:var(--radius-lg); background:#fff;
   }
-  .mold-option__media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .65s var(--ease-out); }
-  .mold-option:hover .mold-option__media img { transform:scale(1.035); }
-  .mold-option__media-label {
-    position:absolute; z-index:2; left:var(--space-3); bottom:var(--space-3);
-    padding:.38rem .55rem; border:1px solid rgba(11,44,66,.12); border-radius:var(--radius-pill);
-    background:rgba(255,255,255,.88); backdrop-filter:blur(8px); color:var(--color-text-secondary);
-    font:var(--weight-bold) .65rem/1 var(--font-display); letter-spacing:.04em; text-transform:uppercase;
+  .mold-slide__media img {
+    width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+    transition:transform .65s var(--ease-out);
   }
-  .mold-diagram { position:absolute; inset:0; display:grid; place-items:center; }
-  .mold-disc {
-    width:58%; aspect-ratio:1; display:grid; align-content:center; justify-content:center;
-    border:1px solid rgba(11,44,66,.13); border-radius:50%;
-    background:linear-gradient(145deg, #fff, #dfe5ea); box-shadow:inset 8px 8px 18px rgba(11,44,66,.08), 0 18px 32px -22px rgba(11,44,66,.7);
+  .mold-slide:hover .mold-slide__media img { transform:scale(1.05); }
+  .mold-slide__mark {
+    display:grid; place-items:center; width:34%; aspect-ratio:1; border-radius:50%;
+    border:2px dashed rgba(0,96,152,.32); color:var(--color-primary);
   }
-  .mold-disc--two { grid-template-columns:repeat(2,22%); gap:16%; }
-  .mold-disc--nine { grid-template-columns:repeat(3,13%); gap:8%; }
-  .mold-hole {
-    aspect-ratio:1; border:1px solid rgba(11,44,66,.18); border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, #aeb8c2, #65727e 72%);
-    box-shadow:inset 2px 3px 5px rgba(11,44,66,.35), 0 1px 0 rgba(255,255,255,.8);
-  }
-  .mold-option__body { display:block; padding:var(--space-3) var(--space-5) var(--space-5); }
-  .mold-option__code {
-    display:inline-flex; align-items:center; gap:.4rem; margin-bottom:var(--space-3);
+  .mold-slide__mark svg { width:30px; height:30px; stroke-width:1.6; }
+  .mold-slide__body { display:flex; flex-direction:column; flex:0 0 auto; padding:var(--space-2) var(--space-5) var(--space-5); }
+  .mold-slide__family {
+    display:inline-flex; align-items:center; gap:.4rem; margin-bottom:var(--space-2);
     color:var(--color-primary); font:var(--weight-bold) var(--text-xs)/1 var(--font-display); letter-spacing:.06em; text-transform:uppercase;
   }
-  .mold-option__code::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--orange-400); }
-  .mold-option h3 { font-size:var(--text-xl); margin-bottom:.35rem; }
-  .mold-option p { min-height:2.7em; color:var(--color-text-secondary); font-size:var(--text-sm); line-height:1.45; }
-  .mold-option__action {
-    display:inline-flex; align-items:center; gap:.35rem; margin-top:var(--space-4);
-    color:var(--color-primary); font:var(--weight-bold) var(--text-xs)/1 var(--font-display);
+  .mold-slide__family::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--orange-400); }
+  .mold-slide h3 { font-size:var(--text-lg); margin-bottom:.3rem; }
+  .mold-slide p { min-height:2.9em; color:var(--color-text-secondary); font-size:var(--text-sm); line-height:1.45; }
+  .mold-slide .av-btn { margin-top:var(--space-4); }
+  .molds-section__hint {
+    display:flex; align-items:center; justify-content:center; gap:.45rem; margin-top:var(--space-1);
+    color:var(--color-text-muted); font-size:var(--text-xs);
   }
-  .mold-option__action svg { width:15px; height:15px; transition:transform var(--dur-fast) var(--ease-out); }
-  .mold-option:hover .mold-option__action svg { transform:translateX(3px); }
-  .mold-recommendation {
-    display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:var(--space-5);
-    min-height:138px; margin-top:var(--space-5); padding:var(--space-6);
-    border:1px solid var(--blue-100); border-radius:var(--radius-xl); background:linear-gradient(135deg, var(--blue-50), #fff);
-  }
-  .mold-recommendation.is-changing { animation:moldRecommendationIn .34s var(--ease-out) both; }
-  @keyframes moldRecommendationIn { from { opacity:.45; transform:translateY(6px); } to { opacity:1; transform:none; } }
-  .mold-recommendation__icon {
-    width:52px; height:52px; display:grid; place-items:center; border-radius:var(--radius-lg);
-    background:var(--blue-900); color:#fff; box-shadow:var(--shadow-primary);
-  }
-  .mold-recommendation__icon svg { width:24px; height:24px; }
-  .mold-recommendation__kicker {
-    display:block; margin-bottom:.3rem; color:var(--color-primary);
-    font:var(--weight-bold) var(--text-xs)/1 var(--font-display); letter-spacing:var(--tracking-caps); text-transform:uppercase;
-  }
-  .mold-recommendation h3 { font-size:var(--text-xl); margin-bottom:.25rem; }
-  .mold-recommendation p { max-width:62ch; color:var(--color-text-secondary); font-size:var(--text-sm); line-height:var(--leading-relaxed); }
+  .molds-section__hint svg { width:15px; height:15px; color:var(--color-accent); }
   .molds-section__note {
-    display:flex; align-items:flex-start; justify-content:center; gap:.45rem; margin-top:var(--space-4);
+    display:flex; align-items:flex-start; justify-content:center; gap:.45rem; margin-top:var(--space-5);
     color:var(--color-text-muted); font-size:var(--text-xs); text-align:center;
   }
   .molds-section__note svg { width:15px; height:15px; flex:0 0 auto; color:var(--color-accent); }
@@ -939,13 +990,20 @@
     color:var(--color-primary); font:var(--weight-bold) var(--text-xs)/1.3 var(--font-display);
   }
   .confidence-card__footer svg { width:15px; height:15px; }
-  .purchase-confidence__action {
+  .purchase-confidence__action, .technical__ask {
     display:flex; align-items:center; justify-content:space-between; gap:var(--space-6);
     margin-top:var(--space-6); padding:var(--space-6); border-radius:var(--radius-xl);
     background:var(--blue-900); color:#fff; box-shadow:var(--shadow-lg);
   }
-  .purchase-confidence__action strong { display:block; color:#fff; font:var(--weight-extra) var(--text-xl)/1.25 var(--font-display); }
-  .purchase-confidence__action span { display:block; margin-top:.3rem; color:rgba(255,255,255,.68); font-size:var(--text-sm); }
+  .purchase-confidence__action strong, .technical__ask strong { display:block; color:#fff; font:var(--weight-extra) var(--text-xl)/1.25 var(--font-display); }
+  .purchase-confidence__action span, .technical__ask > span > span { display:block; margin-top:.3rem; color:rgba(255,255,255,.68); font-size:var(--text-sm); }
+  .technical__ask { margin-top:var(--space-8); }
+  .technical__ask-icon {
+    flex:0 0 auto; width:52px; height:52px; display:grid; place-items:center; border-radius:var(--radius-lg);
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); color:var(--orange-400);
+  }
+  .technical__ask-icon svg { width:25px; height:25px; }
+  .technical__ask > span:not(.technical__ask-icon) { flex:1 1 auto; min-width:0; }
 
   /* Final CTA */
   .final {
@@ -993,30 +1051,21 @@
   .final__assurance svg { width:14px; height:14px; color:var(--orange-300); }
 
   @media (max-width: 900px) {
-    .mold-options, .confidence-grid { grid-template-columns:1fr; }
-    .mold-option { display:grid; grid-template-columns:minmax(180px,.55fr) minmax(0,1fr); }
-    .mold-option__media { margin-bottom:var(--space-3); }
-    .mold-option__body { align-self:center; }
+    .confidence-grid { grid-template-columns:1fr; }
+    .mold-slide { flex-basis:calc((100% - var(--space-5)) / 2); }
+    .molds__progress { max-width:120px; }
     .technical__grid { grid-template-columns:1fr; }
-    .mold-recommendation { grid-template-columns:auto minmax(0,1fr); }
-    .mold-recommendation .av-btn { grid-column:1/-1; justify-self:start; }
   }
   @media (max-width: 640px) {
     .molds-section__head p, .technical__head p, .purchase-confidence__head p { font-size:var(--text-base); }
-    .mold-options {
-      display:flex; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x mandatory;
-      margin-inline:calc(var(--space-5) * -1); padding:4px var(--space-5) var(--space-5);
-      scrollbar-width:none;
-    }
-    .mold-options::-webkit-scrollbar { display:none; }
-    .mold-option { display:block; flex:0 0 88%; scroll-snap-align:center; }
-    .mold-recommendation { grid-template-columns:1fr; }
-    .mold-recommendation__icon { width:44px; height:44px; }
+    .molds__top { flex-wrap:wrap; gap:var(--space-4); }
+    .molds__progress { order:3; flex-basis:100%; max-width:none; }
+    .mold-slide { flex-basis:84%; }
     .cleaning-card__facts { grid-template-columns:1fr; }
     .specs-highlights { grid-template-columns:1fr 1fr; }
     .spec-highlight:first-child { grid-column:1/-1; }
-    .specs-card__action, .purchase-confidence__action { align-items:flex-start; flex-direction:column; }
-    .specs-card__action .av-btn, .purchase-confidence__action .av-btn { width:100%; white-space:normal; }
+    .specs-card__action, .purchase-confidence__action, .technical__ask { align-items:flex-start; flex-direction:column; }
+    .specs-card__action .av-btn, .purchase-confidence__action .av-btn, .technical__ask .av-btn { width:100%; white-space:normal; }
     .final__lead { font-size:var(--text-base); }
     .final__actions { flex-direction:column; }
     .final__actions .av-btn { width:100%; white-space:normal; }
@@ -1166,12 +1215,12 @@
       <div>
         <span class="eyebrow" data-enter style="--i:0; color:var(--orange-400)">Dosadora G13 · Alavanque</span>
         <h1 data-enter style="--i:1">Sua primeira dosadora para <span class="hero__accent">produzir mais</span>, padronizar melhor e alavancar seu negócio</h1>
-        <p class="hero__lead" data-enter style="--i:2">Criada para pequenos e médios produtores que querem sair do processo manual, ganhar velocidade e padronizar a produção com menos desperdício de tempo.</p>
+        <p class="hero__lead" data-enter style="--i:2">Criada para pequenos e médios produtores que querem sair do processo artesanal, ganhar velocidade e padronizar a produção com menos desperdício de tempo.</p>
         <div class="chips" data-enter style="--i:3">
-          <span class="chip"><i data-lucide="gauge"></i> Até 70 kg/hora</span>
+          <span class="chip"><i data-lucide="gauge"></i> +70 kg/hora</span>
           <span class="chip"><i data-lucide="scale"></i> Produtos de 7g a 120g</span>
           <span class="chip"><i data-lucide="layout-grid"></i> Máquina de bancada</span>
-          <span class="chip"><i data-lucide="credit-card"></i> Em até 12x sem juros</span>
+          <span class="chip"><i data-lucide="credit-card"></i> Em até 12x</span>
         </div>
         <div class="hero__cta" data-enter style="--i:4">
           <button class="av-btn av-btn--accent av-btn--lg" type="button" onclick="openQuote(this)">
@@ -1190,7 +1239,7 @@
         <div class="hero__frame">
           <img src="assets/maquina8.jpg" alt="Dosadora G13 Alavanque">
           <div class="hero__marks" aria-hidden="true"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-          <div class="hero__badge"><small>Produção</small><b><span id="badgeCount">0</span> kg/h</b></div>
+          <div class="hero__badge"><small>Produção</small><b>+<span id="badgeCount">0</span> kg/h</b></div>
         </div>
         <div class="hero__float hero__float--a"><img src="assets/maquina2.jpg" alt="Bandejas de pão de queijo prontas no freezer"></div>
         <div class="hero__float hero__float--b"><img src="assets/maquina3.jpg" alt="Ilustração da Dosadora G13 — produto com patente requerida"></div>
@@ -1208,8 +1257,8 @@
     <div class="benefits__top">
       <div class="head" data-reveal>
         <span class="eyebrow">O que muda na sua produção</span>
-        <h2>Menos processo manual, mais padrão e produtividade</h2>
-        <p>A G13 automatiza a moldagem e a dosagem para você crescer sem investir em uma linha industrial completa.</p>
+        <h2>Menos processo artesanal, mais padrão e produtividade</h2>
+        <p>A G13 assume a moldagem e a dosagem para você escalar a produção investindo pouco, sem montar uma linha industrial completa.</p>
       </div>
       <div class="benefits__controls" data-reveal>
         <div class="benefits__status" aria-live="polite"><strong id="benefitCurrent">01</strong> / <span id="benefitTotal">07</span></div>
@@ -1253,6 +1302,20 @@
         </div>
       </div>
     </div>
+
+    <div class="process__watch" data-reveal>
+      <button class="av-video" type="button" data-video="iw2R-61medo" data-video-title="Passo a passo de como utilizar a Dosadora G13" aria-label="Assistir ao vídeo: passo a passo de como utilizar a Dosadora G13">
+        <img src="assets/maquina4.jpg" alt="Pão de queijo saindo da Dosadora G13 sobre a esteira" loading="lazy" decoding="async">
+        <span class="av-video__veil" aria-hidden="true"></span>
+        <span class="av-video__play" aria-hidden="true"><i data-lucide="play"></i></span>
+      </button>
+      <div>
+        <span class="eyebrow">Passo a passo em vídeo</span>
+        <h3>Prefere ver antes de decidir?</h3>
+        <p>A equipe mostra a operação completa da G13, do preparo da massa até o produto pronto na bandeja. São as mesmas cinco etapas acima, na prática.</p>
+        <span class="process__watch-hint"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i> Clique na imagem para assistir sem sair da página</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1275,6 +1338,9 @@
         <h2>Veja a G13 em funcionamento</h2>
         <p>Veja a máquina em uso e entenda o processo sem precisar imaginar. Do preparo da massa à produção com padrão, direto na esteira ou na bandeja.</p>
         <span class="video__note"><i data-lucide="volume-2"></i> Clique no vídeo para assistir com som e controles</span>
+        <a class="video__channel" href="https://www.youtube.com/@alavanqueequipamentos8337" target="_blank" rel="noopener">
+          <i data-lucide="monitor-play" aria-hidden="true"></i> Ver mais vídeos no canal da Alavanque
+        </a>
       </div>
       <div class="video__frame" data-reveal id="videoFrame">
         <img src="https://img.youtube.com/vi/gsfOXQ2S7vI/hqdefault.jpg" alt="Vídeo de apresentação — Dosadora G13 Alavanque" loading="lazy" decoding="async">
@@ -1293,29 +1359,30 @@
   <div class="wrap">
     <div class="applications__grid">
       <div class="applications__copy" data-reveal>
-        <span class="eyebrow">Versatilidade da G13</span>
-        <h2 id="applicationsTitle">Uma máquina, muitos formatos para o seu cardápio</h2>
-        <p class="applications__intro">Selecione um produto para descobrir como a G13 pode ajudar a dar mais ritmo e regularidade à sua produção.</p>
+        <span class="eyebrow">Resultados da máquina</span>
+        <h2 id="applicationsTitle">O que a G13 entrega na sua produção</h2>
+        <p class="applications__intro">Escolha um produto e veja o resultado que a G13 entrega, com o molde usado em cada um.</p>
 
-        <div class="applications__selector" id="applicationOptions" role="radiogroup" aria-label="Escolha uma aplicação da Dosadora G13">
+        <div class="applications__selector" id="applicationOptions" role="radiogroup" aria-label="Escolha um produto feito na Dosadora G13">
           <button class="application-option" type="button" role="radio" aria-checked="true" tabindex="0" data-index="0">Pão de queijo</button>
           <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="1">Broas</button>
           <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="2">Chipas</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="3">Palitos de queijo</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="4">Biscoitos</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="5">Bolachas amanteigadas</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="6">Rosquinhas</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="7">Mini churros</button>
-          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="8">Nhoques</button>
+          <button class="application-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="3">Bolachas amanteigadas</button>
         </div>
 
         <div class="applications__detail" id="applicationDetail" role="region" aria-live="polite" aria-atomic="true">
           <span class="applications__detail-kicker" id="applicationKicker">Mais padrão por bandeja</span>
           <h3 id="applicationTitle">Pão de queijo com porções consistentes</h3>
           <p id="applicationDescription">Ajuda a formar unidades mais regulares, facilitando o congelamento, o forneamento e o cálculo de rendimento.</p>
-          <div class="applications__meta" aria-label="Características da aplicação">
-            <span class="applications__meta-item"><small>Formato</small><strong id="applicationFormat">Redondo</strong></span>
-            <span class="applications__meta-item"><small>Operação</small><strong id="applicationOperation">Formar + cortar</strong></span>
+          <div class="applications__meta" aria-label="Características do produto">
+            <span class="applications__meta-item"><small>Molde</small><strong id="applicationFormat">Cilíndrico</strong></span>
+            <span class="applications__meta-item"><small>Operação</small><strong id="applicationOperation">Dosar + cortar</strong></span>
+          </div>
+          <div class="applications__detail-actions">
+            <button class="av-video-link" type="button" id="applicationVideo" hidden>
+              <i data-lucide="play" aria-hidden="true"></i> <span id="applicationVideoLabel">Ver em vídeo</span>
+            </button>
+            <a class="applications__detail-link" href="#moldes">Ver esse molde <i data-lucide="arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
 
@@ -1324,21 +1391,45 @@
 
       <div class="applications__visual" data-reveal>
         <figure class="applications__figure">
-          <img class="applications__image" src="assets/aplicacoes-g13-v2.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Variedade de produtos recém-formados em bandejas: pão de queijo, biscoitos, mini churros e nhoques">
-          <span class="applications__badge"><i data-lucide="sparkles" aria-hidden="true"></i> 9 aplicações para explorar</span>
+          <img class="applications__image" id="galleryImage" src="assets/biscoito-maisena.webp" width="984" height="554" loading="lazy" decoding="async" alt="Biscoitos de maisena amanteigados em uma tigela">
+          <span class="applications__badge"><i data-lucide="sparkles" aria-hidden="true"></i> 4 produtos, 3 moldes</span>
           <figcaption class="applications__caption">
-            <span>Versatilidade na prática</span>
-            <strong>Do pão de queijo aos mini churros</strong>
+            <span>Formatos possíveis</span>
+            <strong id="galleryCaption">Biscoito de maisena</strong>
           </figcaption>
         </figure>
-        <div class="applications__proof" aria-label="Destaques de versatilidade">
+
+        <div class="applications__thumbs" id="galleryThumbs" role="radiogroup" aria-label="Galeria de biscoitos artesanais">
+          <button class="applications__thumb" type="button" role="radio" aria-checked="true" tabindex="0"
+            data-src="assets/biscoito-maisena.webp" data-caption="Biscoito de maisena" data-alt="Biscoitos de maisena amanteigados em uma tigela">
+            <img src="assets/biscoito-maisena.webp" width="984" height="554" loading="lazy" decoding="async" alt="Biscoito de maisena">
+          </button>
+          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
+            data-src="assets/biscoito-casadinho.webp" data-caption="Casadinho com goiabada" data-alt="Biscoitos casadinhos recheados com goiabada">
+            <img src="assets/biscoito-casadinho.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Casadinho com goiabada">
+          </button>
+          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
+            data-src="assets/biscoito-sortido.jpg" data-caption="Amanteigados sortidos" data-alt="Biscoitos amanteigados sortidos, com desenhos e rosquinhas recheadas">
+            <img src="assets/biscoito-sortido.jpg" width="500" height="334" loading="lazy" decoding="async" alt="Amanteigados sortidos">
+          </button>
+          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
+            data-src="assets/biscoito-rosquinha.webp" data-caption="Rosquinha amanteigada" data-alt="Rosquinhas amanteigadas em uma tigela">
+            <img src="assets/biscoito-rosquinha.webp" width="480" height="480" loading="lazy" decoding="async" alt="Rosquinha amanteigada">
+          </button>
+          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
+            data-src="assets/biscoito-chocolate.webp" data-caption="Biscoito de chocolate" data-alt="Biscoitos de chocolate polvilhados com açúcar em um prato">
+            <img src="assets/biscoito-chocolate.webp" width="1024" height="683" loading="lazy" decoding="async" alt="Biscoito de chocolate">
+          </button>
+        </div>
+
+        <div class="applications__proof" aria-label="Destaques da produção">
           <div class="applications__proof-item">
             <span class="applications__proof-icon"><i data-lucide="scale" aria-hidden="true"></i></span>
             <span><strong>7g a 120g</strong><small>faixa de porcionamento</small></span>
           </div>
           <div class="applications__proof-item">
             <span class="applications__proof-icon applications__proof-icon--accent"><i data-lucide="shapes" aria-hidden="true"></i></span>
-            <span><strong>Vários moldes</strong><small>formatos para diferentes receitas</small></span>
+            <span><strong>Troca de molde</strong><small>muda o formato do produto</small></span>
           </div>
         </div>
       </div>
@@ -1429,7 +1520,7 @@
         <h2>Uma máquina para crescer com você</h2>
         <p style="color:var(--color-text-secondary);font-size:var(--text-lg);margin:var(--space-4) 0 var(--space-4)">Ideal para quem está começando uma linha de produção artesanal, utiliza freezers comerciais e busca aumentar a capacidade produtiva.</p>
         <p style="color:var(--color-text-secondary);margin-bottom:var(--space-4)">Pode ser sua primeira máquina para profissionalizar a produção, ganhar tempo e atender melhor a demanda dos seus clientes.</p>
-        <p style="color:var(--color-text-secondary)">Mesmo depois, com uma estrutura mais automatizada, a G13 continua útil para apoiar processos, testes e produções menores.</p>
+        <p style="color:var(--color-text-secondary)">Mesmo depois, com uma estrutura maior, a G13 continua útil para apoiar processos, testes e produções menores.</p>
       </div>
     </div>
   </div>
@@ -1455,24 +1546,36 @@
 
     <div class="tabpanel" id="panel-esteira" role="tabpanel" aria-labelledby="tab-esteira" data-active>
       <div class="two">
-        <div class="imgframe"><img src="assets/maquina5.jpg" alt="Retirando o produto da esteira manual"></div>
+        <button class="av-video" type="button" data-video="trXQ7xX866Q" data-video-title="Dosadora G13 utilizada com esteira manual" aria-label="Assistir ao vídeo: a Dosadora G13 utilizada com esteira manual">
+          <img src="assets/maquina5.jpg" alt="Retirando o produto da esteira manual" loading="lazy" decoding="async">
+          <span class="av-video__veil" aria-hidden="true"></span>
+          <span class="av-video__kicker" aria-hidden="true"><i data-lucide="play"></i> Vídeo</span>
+          <span class="av-video__play" aria-hidden="true"><i data-lucide="play"></i></span>
+          <span class="av-video__label" aria-hidden="true">Veja a esteira manual em uso</span>
+        </button>
         <div>
           <h3 style="font-size:var(--text-3xl);margin-bottom:var(--space-4)">Método com esteira manual</h3>
           <p style="color:var(--color-text-secondary);font-size:var(--text-lg);margin-bottom:var(--space-4)">A massa moldada e dosada cai diretamente na esteira. Depois, basta retirar os produtos e colocá-los em outro recipiente.</p>
-          <p style="color:var(--color-text-secondary);margin-bottom:var(--space-6)">Fácil de operar, por uma ou duas pessoas. Esteira de 19 cm de largura por 2 metros, em material atóxico. Excelente opção para quem está começando.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="av-tag av-tag--primary">19 cm × 2 m</span><span class="av-tag av-tag--accent">Material atóxico</span><span class="av-tag av-tag--outline">1–2 operadores</span></div>
+          <p style="color:var(--color-text-secondary);margin-bottom:var(--space-6)">Fácil de operar, por uma ou duas pessoas. Esteira de 18,5 cm de largura por 2 metros, em material atóxico. Excelente opção para quem está começando.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="av-tag av-tag--primary">18,5 cm × 2 m</span><span class="av-tag av-tag--accent">Material atóxico</span><span class="av-tag av-tag--outline">1–2 operadores</span></div>
         </div>
       </div>
     </div>
 
     <div class="tabpanel" id="panel-bandeja" role="tabpanel" aria-labelledby="tab-bandeja" hidden>
       <div class="two">
-        <div class="imgframe"><img src="assets/maquina6.jpg" alt="Levando a bandeja com o produto direto para o freezer"></div>
+        <button class="av-video" type="button" data-video="ejjM2Ll7vAs" data-video-title="Dosadora G13 utilizada com bandejas" aria-label="Assistir ao vídeo: a Dosadora G13 utilizada com bandejas">
+          <img src="assets/maquina6.jpg" alt="Levando a bandeja com o produto direto para o freezer" loading="lazy" decoding="async">
+          <span class="av-video__veil" aria-hidden="true"></span>
+          <span class="av-video__kicker" aria-hidden="true"><i data-lucide="play"></i> Vídeo</span>
+          <span class="av-video__play" aria-hidden="true"><i data-lucide="play"></i></span>
+          <span class="av-video__label" aria-hidden="true">Veja a produção direto na bandeja</span>
+        </button>
         <div>
           <h3 style="font-size:var(--text-3xl);margin-bottom:var(--space-4)">Método com bandeja</h3>
           <p style="color:var(--color-text-secondary);font-size:var(--text-lg);margin-bottom:var(--space-4)">A massa cai diretamente na bandeja, que já pode ser levada ao armário ou freezer sem trocar de recipiente.</p>
-          <p style="color:var(--color-text-secondary);margin-bottom:var(--space-6)">Mais rápido e prático, indicado para quem quer mais eficiência na rotina. Bandeja de 19 cm por 50 cm, ideal para freezer vertical de 500 litros com prateleiras originais.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="av-tag av-tag--primary">19 cm × 50 cm</span><span class="av-tag av-tag--accent">Freezer 500 L</span><span class="av-tag av-tag--outline">Mais eficiência</span></div>
+          <p style="color:var(--color-text-secondary);margin-bottom:var(--space-6)">Mais rápido e prático, indicado para quem quer mais eficiência na rotina. Bandeja de 18 cm por 50 cm, ideal para freezer vertical de 500 litros com prateleiras originais.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="av-tag av-tag--primary">18 cm × 50 cm</span><span class="av-tag av-tag--accent">Freezer 500 L</span><span class="av-tag av-tag--outline">Mais eficiência</span></div>
         </div>
       </div>
     </div>
@@ -1497,73 +1600,23 @@
     <div class="molds-section__head" data-reveal>
       <span class="eyebrow">Escolha do molde</span>
       <h2 id="moldsTitle">O formato do produto começa pelo molde certo</h2>
-      <p>Compare a quantidade de saídas e os diâmetros. A escolha final considera o produto e o comportamento da sua massa.</p>
+      <p>Estes são os moldes da G13. Passe pelos formatos e escolha pelo produto que você quer fazer — a definição final considera o comportamento da sua massa.</p>
     </div>
 
-    <div class="mold-options" id="moldOptions" role="radiogroup" aria-label="Compare os moldes da Dosadora G13" data-reveal-group>
-      <button class="mold-option" type="button" role="radio" aria-checked="true" tabindex="0" data-index="0">
-        <span class="mold-option__check" aria-hidden="true"><i data-lucide="check"></i></span>
-        <span class="mold-option__media">
-          <span class="mold-diagram" aria-hidden="true">
-            <span class="mold-disc mold-disc--two"><i class="mold-hole"></i><i class="mold-hole"></i></span>
-          </span>
-          <span class="mold-option__media-label">Representação dimensional</span>
-        </span>
-        <span class="mold-option__body">
-          <span class="mold-option__code">Molde A · 2 saídas</span>
-          <h3>Para produtos maiores</h3>
-          <p>Dois furos de 5 cm de diâmetro.</p>
-          <span class="mold-option__action">Ver recomendação <i data-lucide="arrow-right" aria-hidden="true"></i></span>
-        </span>
-      </button>
-
-      <button class="mold-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="1">
-        <span class="mold-option__check" aria-hidden="true"><i data-lucide="check"></i></span>
-        <span class="mold-option__media">
-          <img src="assets/moldes.jpg" alt="Vista interna do Molde B com três furos de 3,5 cm" loading="lazy" decoding="async">
-          <span class="mold-option__media-label">Foto real</span>
-        </span>
-        <span class="mold-option__body">
-          <span class="mold-option__code">Molde B · 3 saídas</span>
-          <h3>Diâmetro intermediário</h3>
-          <p>Três furos de 3,5 cm de diâmetro.</p>
-          <span class="mold-option__action">Ver recomendação <i data-lucide="arrow-right" aria-hidden="true"></i></span>
-        </span>
-      </button>
-
-      <button class="mold-option" type="button" role="radio" aria-checked="false" tabindex="-1" data-index="2">
-        <span class="mold-option__check" aria-hidden="true"><i data-lucide="check"></i></span>
-        <span class="mold-option__media">
-          <span class="mold-diagram" aria-hidden="true">
-            <span class="mold-disc mold-disc--nine">
-              <i class="mold-hole"></i><i class="mold-hole"></i><i class="mold-hole"></i>
-              <i class="mold-hole"></i><i class="mold-hole"></i><i class="mold-hole"></i>
-              <i class="mold-hole"></i><i class="mold-hole"></i><i class="mold-hole"></i>
-            </span>
-          </span>
-          <span class="mold-option__media-label">Representação dimensional</span>
-        </span>
-        <span class="mold-option__body">
-          <span class="mold-option__code">Molde C · até 9 saídas</span>
-          <h3>Para formatos menores</h3>
-          <p>Furos de 1,3 cm para nhoques ou palitinhos.</p>
-          <span class="mold-option__action">Ver recomendação <i data-lucide="arrow-right" aria-hidden="true"></i></span>
-        </span>
-      </button>
+    <div class="molds__top" data-reveal>
+      <div class="molds__status" aria-live="polite"><strong id="moldCurrent">01</strong> / <span id="moldTotal">12</span></div>
+      <div class="molds__progress" aria-hidden="true"><span id="moldProgress"></span></div>
+      <div class="molds__arrows">
+        <button class="molds__arrow" id="moldPrev" type="button" aria-label="Ver molde anterior" aria-controls="moldTrack" disabled><i data-lucide="arrow-left"></i></button>
+        <button class="molds__arrow" id="moldNext" type="button" aria-label="Ver próximo molde" aria-controls="moldTrack"><i data-lucide="arrow-right"></i></button>
+      </div>
     </div>
 
-    <div class="mold-recommendation" id="moldRecommendation" role="region" aria-live="polite" aria-atomic="true" data-reveal>
-      <span class="mold-recommendation__icon" aria-hidden="true"><i data-lucide="shapes"></i></span>
-      <span>
-        <span class="mold-recommendation__kicker" id="moldRecommendationKicker">Porções de maior diâmetro</span>
-        <h3 id="moldRecommendationTitle">Molde A · 2 saídas de 5 cm</h3>
-        <p id="moldRecommendationDescription">Duas saídas de maior diâmetro, indicadas quando o produto precisa de uma porção mais larga.</p>
-      </span>
-      <button class="av-btn av-btn--primary" type="button" onclick="openQuoteFor('Moldes especiais', this)">
-        <i data-lucide="message-circle" class="icon"></i> Confirmar o molde ideal
-      </button>
+    <div class="molds__viewport" id="moldsViewport" data-reveal>
+      <div class="mold-track" id="moldTrack" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Moldes disponíveis para a Dosadora G13"></div>
     </div>
-    <p class="molds-section__note"><i data-lucide="info" aria-hidden="true"></i> Moldes especiais também podem ser avaliados sob consulta.</p>
+    <p class="molds-section__hint"><i data-lucide="move-horizontal" aria-hidden="true"></i> Arraste, deslize ou use as setas para ver todos os moldes</p>
+    <p class="molds-section__note"><i data-lucide="info" aria-hidden="true"></i> Na cotação, a equipe ajuda a confirmar qual molde combina melhor com o seu produto e com a sua massa.</p>
   </div>
 </section>
 
@@ -1602,15 +1655,16 @@
         <div class="specs-highlights" aria-label="Principais medidas">
           <span class="spec-highlight"><small>Dimensões de base</small><strong>45 × 40 cm</strong></span>
           <span class="spec-highlight"><small>Altura</small><strong>60 cm</strong></span>
-          <span class="spec-highlight"><small>Peso</small><strong>32 kg</strong></span>
+          <span class="spec-highlight"><small>Peso da máquina</small><strong>28 kg</strong></span>
         </div>
         <table class="specs-table">
           <caption class="specs-table__caption">Especificações completas da Dosadora G13</caption>
           <tbody>
             <tr><th scope="row">Capacidade do cilindro</th><td>5 litros</td></tr>
-            <tr><th scope="row">Capacidade aproximada de massa</th><td>4,5 kg</td></tr>
+            <tr><th scope="row">Capacidade aproximada de massa</th><td>4,7 kg</td></tr>
             <tr><th scope="row">Faixa de peso dos produtos</th><td>7g a 120g</td></tr>
-            <tr><th scope="row">Esteira manual</th><td>19 cm × 2 m</td></tr>
+            <tr><th scope="row">Esteira manual</th><td>18,5 cm × 2 m</td></tr>
+            <tr><th scope="row">Bandeja</th><td>18 cm × 50 cm</td></tr>
             <tr><th scope="row">Tipo de equipamento</th><td>Bancada</td></tr>
             <tr><th scope="row">Função</th><td>Moldar e dosar</td></tr>
           </tbody>
@@ -1623,6 +1677,17 @@
           </button>
         </div>
       </aside>
+    </div>
+
+    <div class="technical__ask" data-reveal>
+      <span class="technical__ask-icon" aria-hidden="true"><i data-lucide="circle-help"></i></span>
+      <span>
+        <strong>Ficou com alguma dúvida sobre o equipamento?</strong>
+        <span>A Alavanque reuniu em vídeo as perguntas que os clientes mais fazem antes de comprar.</span>
+      </span>
+      <button class="av-btn av-btn--accent" type="button" data-video="7v-dnRoRIII" data-video-title="Perguntas e respostas sobre a Dosadora G13">
+        <i data-lucide="play" class="icon"></i> Assistir perguntas e respostas
+      </button>
     </div>
   </div>
 </section>
@@ -1643,7 +1708,7 @@
           <span class="confidence-card__proof">6 meses</span>
         </div>
         <h3>Proteção para o seu investimento</h3>
-        <p>Garantia de 6 meses em todas as peças. Casos de mau uso não estão incluídos na cobertura.</p>
+        <p>Garantia de 6 meses em todas as peças do equipamento.</p>
         <span class="confidence-card__footer"><i data-lucide="circle-check" aria-hidden="true"></i> Condição informada antes da compra</span>
       </article>
 
@@ -1685,7 +1750,7 @@
       <h2 id="finalCtaTitle">Descubra se a G13 é a escolha certa para sua produção</h2>
       <p class="final__lead">Conte o que você produz e o volume que pretende alcançar. A equipe ajuda a confirmar o molde e a configuração antes de enviar a cotação pelo WhatsApp.</p>
       <div class="final__highlights" aria-label="Destaques da Dosadora G13">
-        <span class="final__highlight"><i data-lucide="gauge" aria-hidden="true"></i> Até 70 kg/h*</span>
+        <span class="final__highlight"><i data-lucide="gauge" aria-hidden="true"></i> +70 kg/h*</span>
         <span class="final__highlight"><i data-lucide="scale" aria-hidden="true"></i> Produtos de 7g a 120g</span>
         <span class="final__highlight"><i data-lucide="layout-grid" aria-hidden="true"></i> Máquina de bancada</span>
       </div>
@@ -1762,7 +1827,7 @@
           <span class="field-error" id="quotePhoneError">Informe um WhatsApp com DDD.</span>
         </div>
         <div class="av-field"><label class="av-label" for="quoteProduct">Tenho interesse em</label>
-          <select class="av-select" id="quoteProduct" name="product"><option>Dosadora G13</option><option>Moldes especiais</option><option>Outro equipamento</option></select>
+          <select class="av-select" id="quoteProduct" name="product"><option>Dosadora G13</option><option>Molde personalizado</option><option>Outro equipamento</option></select>
         </div>
       </div>
       <p class="quote__privacy"><i data-lucide="lock-keyhole"></i> Seus dados serão usados somente para este atendimento.</p>
@@ -1781,19 +1846,19 @@
 
 <script>
   const BENEFITS = [
-    ['trending-up','Mais produtividade','Produza até 70 kg por hora, dependendo do método, tipo de massa e organização da operação.'],
+    ['trending-up','Mais produtividade','Produza mais de 70 kg por hora, dependendo do método, tipo de massa e organização da operação.'],
     ['ruler','Produtos mais padronizados','Controle melhor o peso, o formato e o acabamento dos seus produtos.'],
-    ['timer','Menos tempo no manual','Reduza o esforço com moldagem e pesagem individual.'],
-    ['sparkles','Mais higiene','Menor contato manual com o alimento durante a produção.'],
-    ['hand','Fácil operação','Equipamento simples de usar, ideal para quem está começando a automatizar.'],
+    ['timer','Menos esforço artesanal','A máquina assume a moldagem e a pesagem que hoje são feitas uma unidade por vez.'],
+    ['sparkles','Mais higiene','Menor contato das mãos com o alimento durante a produção.'],
+    ['hand','Fácil operação','Equipamento simples de usar, ideal para quem está saindo do processo artesanal.'],
     ['droplets','Fácil higienização','Peças removíveis, laváveis com água e detergente neutro.'],
-    ['wallet','Melhor custo-benefício','Aumente a capacidade sem investir em uma linha industrial completa.'],
+    ['wallet','Produza muito investindo pouco','Escale a produção sem precisar montar uma linha industrial completa.'],
   ];
   const STEPS = [
     ['cooking-pot','Prepare sua massa','Em outro equipamento, como batedeira ou masseira.'],
-    ['package-open','Coloque no cilindro','Capacidade máxima de 5 litros, aprox. 4,5 kg de massa.'],
-    ['sliders-horizontal','Regule o peso','Ajuste manual, entre 7g e 120g.'],
-    ['shapes','Escolha o molde','Diferentes modelos, conforme o produto.'],
+    ['shapes','Escolha o molde','Cilíndrico, ferradura ou variado, conforme o produto.'],
+    ['package-open','Coloque no cilindro','Capacidade máxima de 5 litros, aprox. 4,7 kg de massa.'],
+    ['sliders-horizontal','Regule o peso','Um giro na peça define o tamanho, entre 7g e 120g.'],
     ['circle-check','Produza com padrão','Direto na esteira ou na bandeja.'],
   ];
   const APPLICATIONS = [
@@ -1801,83 +1866,77 @@
       kicker:'Mais padrão por bandeja',
       title:'Pão de queijo com porções consistentes',
       description:'Ajuda a formar unidades mais regulares, facilitando o congelamento, o forneamento e o cálculo de rendimento.',
-      format:'Redondo',
-      operation:'Formar + cortar'
+      format:'Cilíndrico',
+      operation:'Dosar + cortar',
+      video:'qU_FUil-VLg',
+      videoTitle:'Dosadora G13 produzindo pão de queijo',
+      videoLabel:'Ver produzindo pão de queijo'
     },
     {
       kicker:'Regularidade em cada lote',
       title:'Broas com peso e tamanho mais uniformes',
-      description:'Com a massa adequada, a dosagem mantém as porções mais próximas entre si e reduz os ajustes manuais.',
-      format:'Redondo',
+      description:'Com a massa adequada, a dosagem mantém as porções mais próximas entre si e reduz os ajustes feitos à mão.',
+      format:'Cilíndrico',
       operation:'Dosar + cortar'
     },
     {
-      kicker:'Base pronta para finalizar',
-      title:'Chipas porcionadas com mais agilidade',
-      description:'A G13 forma porções alongadas com repetibilidade, deixando a finalização do formato mais rápida.',
-      format:'Alongado',
-      operation:'Formar + cortar'
-    },
-    {
-      kicker:'Comprimento sob controle',
-      title:'Palitos de queijo mais regulares',
-      description:'O fluxo e o corte ajudam a repetir comprimento e volume, melhorando a organização das bandejas.',
-      format:'Alongado',
-      operation:'Extrudar + cortar'
-    },
-    {
-      kicker:'Mais opções com o molde certo',
-      title:'Biscoitos em diferentes formatos',
-      description:'A troca de molde permite adaptar o acabamento ao produto, mantendo a dosagem mais previsível.',
-      format:'Variável',
-      operation:'Dosar com molde'
+      kicker:'Formato já na saída',
+      title:'Chipas com o formato característico',
+      description:'O molde ferradura entrega a chipa já curvada, sem precisar modelar cada unidade depois da dosagem.',
+      format:'Ferradura',
+      operation:'Formar + cortar',
+      video:'UgqgMDpKtJM',
+      videoTitle:'Chipa de padaria e hotel feita na Dosadora G13',
+      videoLabel:'Ver produzindo chipas'
     },
     {
       kicker:'Acabamento mais definido',
-      title:'Bolachas amanteigadas com repetibilidade',
-      description:'Massas macias podem ganhar desenho e volume mais constantes para uma apresentação mais uniforme.',
-      format:'Decorado',
-      operation:'Dosar com molde'
-    },
-    {
-      kicker:'Produção com repetibilidade',
-      title:'Rosquinhas com formato mais regular',
-      description:'Com o molde adequado, cada porção sai com volume mais consistente e pronta para seguir no processo.',
-      format:'Anelar',
-      operation:'Formar com molde'
-    },
-    {
-      kicker:'Corte ágil, mesma medida',
-      title:'Mini churros prontos para a bandeja',
-      description:'A extrusão e o corte ajudam a manter o comprimento mais próximo entre as unidades e aceleram o lote.',
-      format:'Canelado',
-      operation:'Extrudar + cortar'
-    },
-    {
-      kicker:'Porções pequenas e regulares',
-      title:'Nhoques com produção mais contínua',
-      description:'O fluxo de massa e o corte reduzem a variação entre unidades e o tempo gasto no porcionamento manual.',
-      format:'Pequeno',
-      operation:'Dosar + cortar'
+      title:'Bolachas amanteigadas com desenho constante',
+      description:'Massas macias ganham desenho e volume mais parecidos entre si, para uma apresentação mais uniforme.',
+      format:'Variado',
+      operation:'Dosar com molde',
+      video:'Zi6x6HzaiMI',
+      videoTitle:'Biscoito amanteigado casadinho feito na Dosadora G13',
+      videoLabel:'Ver produzindo bolachas'
     }
   ];
   const MOLDS = [
-    {
-      kicker:'Porções de maior diâmetro',
-      title:'Molde A · 2 saídas de 5 cm',
-      description:'Duas saídas de maior diâmetro, indicadas quando o produto precisa de uma porção mais larga.'
-    },
-    {
-      kicker:'Diâmetro intermediário',
-      title:'Molde B · 3 saídas de 3,5 cm',
-      description:'Três saídas de tamanho intermediário para equilibrar o diâmetro do produto e a quantidade por passagem.'
-    },
-    {
-      kicker:'Formatos menores',
-      title:'Molde C · até 9 saídas de 1,3 cm',
-      description:'Até nove saídas menores, indicadas para nhoques ou palitinhos, conforme o comportamento da massa.'
-    }
+    { img:'molde5',  family:'Redondo',   title:'Saída única',            desc:'Um furo grande, para a maior porção que a G13 forma.' },
+    { img:'molde2',  family:'Redondo',   title:'2 saídas de 5 cm',       desc:'Pão de queijo e broas de tamanho maior.' },
+    { img:'molde3',  family:'Redondo',   title:'3 saídas de 3,5 cm',     desc:'A medida mais usada no pão de queijo.' },
+    { img:'molde4',  family:'Redondo',   title:'4 saídas redondas',      desc:'Mais unidades por passagem, em porções menores.' },
+    { img:'molde10', family:'Redondo',   title:'Saídas pequenas em fila',desc:'Furos de 1,3 cm, para porções miúdas.' },
+    { img:'molde9',  family:'Ferradura', title:'Ferradura',              desc:'A chipa já sai curvada, sem modelar uma unidade por vez.' },
+    { img:'molde6',  family:'Decorado',  title:'Coração',                desc:'Três corações por passagem, para massas macias.' },
+    { img:'molde7',  family:'Decorado',  title:'Estrela',                desc:'Estrelas de seis pontas, com o mesmo desenho em cada unidade.' },
+    { img:'molde8',  family:'Decorado',  title:'Rosquinha',              desc:'Anel com furo no meio, no formato de rosquinha.' },
+    { img:'molde11', family:'Alongado',  title:'Alongado',               desc:'Três saídas compridas, para produtos em formato de palito.' },
+    { img:'molde12', family:'Alongado',  title:'Fenda contínua',         desc:'Uma saída em fita, para tiras largas de massa.' },
   ];
+  document.getElementById('moldTrack').innerHTML = MOLDS.map((m,i)=>`
+    <article class="mold-slide" aria-label="Molde ${i + 1} de ${MOLDS.length + 1}">
+      <span class="mold-slide__media">
+        <img src="assets/moldes/${m.img}.jpeg" width="1600" height="714" alt="Molde ${m.title.toLowerCase()} da Dosadora G13" loading="lazy" decoding="async">
+      </span>
+      <div class="mold-slide__body">
+        <span class="mold-slide__family">${m.family}</span>
+        <h3>${m.title}</h3>
+        <p>${m.desc}</p>
+      </div>
+    </article>`).join('') + `
+    <article class="mold-slide mold-slide--custom" aria-label="Molde ${MOLDS.length + 1} de ${MOLDS.length + 1}">
+      <span class="mold-slide__media">
+        <span class="mold-slide__mark" aria-hidden="true"><i data-lucide="plus"></i></span>
+      </span>
+      <div class="mold-slide__body">
+        <span class="mold-slide__family">Sob medida</span>
+        <h3>Molde personalizado</h3>
+        <p>Não achou o formato do seu produto? A equipe avalia um molde exclusivo.</p>
+        <button class="av-btn av-btn--primary av-btn--block" type="button" onclick="openQuoteFor('Molde personalizado', this)">
+          <i data-lucide="message-circle" class="icon"></i> Pedir um molde
+        </button>
+      </div>
+    </article>`;
   document.getElementById('benefits').innerHTML = BENEFITS.map(([ic,t,d],i)=>`
     <div class="av-card av-card--sm av-card--interactive benefit" role="group" aria-label="Benefício ${i + 1} de ${BENEFITS.length}">
       <span class="benefit__index">${String(i + 1).padStart(2,'0')}</span>
@@ -1976,6 +2035,8 @@
   const applicationDescriptionEl = document.getElementById('applicationDescription');
   const applicationFormatEl = document.getElementById('applicationFormat');
   const applicationOperationEl = document.getElementById('applicationOperation');
+  const applicationVideoEl = document.getElementById('applicationVideo');
+  const applicationVideoLabelEl = document.getElementById('applicationVideoLabel');
   let activeApplication = 0;
 
   function setActiveApplication(index, options = {}){
@@ -1992,6 +2053,15 @@
     applicationDescriptionEl.textContent = item.description;
     applicationFormatEl.textContent = item.format;
     applicationOperationEl.textContent = item.operation;
+    if (item.video) {
+      applicationVideoEl.hidden = false;
+      applicationVideoEl.dataset.video = item.video;
+      applicationVideoEl.dataset.videoTitle = item.videoTitle;
+      applicationVideoLabelEl.textContent = item.videoLabel;
+    } else {
+      applicationVideoEl.hidden = true;
+      delete applicationVideoEl.dataset.video;
+    }
     applicationDetailEl.classList.remove('is-changing');
     void applicationDetailEl.offsetWidth;
     applicationDetailEl.classList.add('is-changing');
@@ -2013,47 +2083,46 @@
   });
   setActiveApplication(0);
 
-  /* ===== Mold chooser ===== */
-  const moldOptionsEl = document.getElementById('moldOptions');
-  const moldOptionEls = Array.from(moldOptionsEl.querySelectorAll('.mold-option'));
-  const moldRecommendationEl = document.getElementById('moldRecommendation');
-  const moldRecommendationKickerEl = document.getElementById('moldRecommendationKicker');
-  const moldRecommendationTitleEl = document.getElementById('moldRecommendationTitle');
-  const moldRecommendationDescriptionEl = document.getElementById('moldRecommendationDescription');
-  let activeMold = 0;
+  /* ===== Gallery: real product photos under the figure ===== */
+  const galleryThumbsEl = document.getElementById('galleryThumbs');
+  const galleryImageEl = document.getElementById('galleryImage');
+  const galleryCaptionEl = document.getElementById('galleryCaption');
+  if (galleryThumbsEl && galleryImageEl) {
+    const galleryThumbs = Array.from(galleryThumbsEl.querySelectorAll('.applications__thumb'));
+    let activeGallery = 0;
 
-  function setActiveMold(index, options = {}){
-    const nextIndex = Math.min(MOLDS.length - 1, Math.max(0, index));
-    const mold = MOLDS[nextIndex];
-    activeMold = nextIndex;
-    moldOptionEls.forEach((button, buttonIndex) => {
-      const active = buttonIndex === nextIndex;
-      button.setAttribute('aria-checked', String(active));
-      button.setAttribute('tabindex', active ? '0' : '-1');
+    function setActiveGallery(index, options = {}){
+      const nextIndex = Math.min(galleryThumbs.length - 1, Math.max(0, index));
+      const thumb = galleryThumbs[nextIndex];
+      activeGallery = nextIndex;
+      galleryThumbs.forEach((button, i) => {
+        const active = i === nextIndex;
+        button.setAttribute('aria-checked', String(active));
+        button.setAttribute('tabindex', active ? '0' : '-1');
+      });
+      galleryImageEl.src = thumb.dataset.src;
+      galleryImageEl.alt = thumb.dataset.alt;
+      galleryImageEl.removeAttribute('width');
+      galleryImageEl.removeAttribute('height');
+      galleryCaptionEl.textContent = thumb.dataset.caption;
+      galleryImageEl.classList.remove('is-changing');
+      void galleryImageEl.offsetWidth;
+      galleryImageEl.classList.add('is-changing');
+      if (options.focus) thumb.focus();
+    }
+
+    galleryThumbs.forEach((button, index) => button.addEventListener('click', () => setActiveGallery(index)));
+    galleryThumbsEl.addEventListener('keydown', (event) => {
+      let nextIndex = activeGallery;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (activeGallery + 1) % galleryThumbs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (activeGallery - 1 + galleryThumbs.length) % galleryThumbs.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = galleryThumbs.length - 1;
+      else return;
+      event.preventDefault();
+      setActiveGallery(nextIndex, { focus:true });
     });
-    moldRecommendationKickerEl.textContent = mold.kicker;
-    moldRecommendationTitleEl.textContent = mold.title;
-    moldRecommendationDescriptionEl.textContent = mold.description;
-    moldRecommendationEl.classList.remove('is-changing');
-    void moldRecommendationEl.offsetWidth;
-    moldRecommendationEl.classList.add('is-changing');
-    if (options.focus) moldOptionEls[nextIndex].focus();
   }
-
-  moldOptionEls.forEach((button, index) => {
-    button.addEventListener('click', () => setActiveMold(index));
-  });
-  moldOptionsEl.addEventListener('keydown', (event) => {
-    let nextIndex = activeMold;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (activeMold + 1) % MOLDS.length;
-    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (activeMold - 1 + MOLDS.length) % MOLDS.length;
-    else if (event.key === 'Home') nextIndex = 0;
-    else if (event.key === 'End') nextIndex = MOLDS.length - 1;
-    else return;
-    event.preventDefault();
-    setActiveMold(nextIndex, { focus:true });
-  });
-  setActiveMold(0);
 
   /* ===== Testimonials slider ===== */
   const testimonialViewportEl = document.getElementById('testimonialViewport');
@@ -2191,79 +2260,85 @@
   renderTestimonial();
   startTestimonialAutoplay();
 
-  /* ===== Benefits carousel: buttons, keyboard, touch and pointer drag ===== */
-  const benefitTrackEl = document.getElementById('benefits');
-  const benefitViewportEl = document.getElementById('benefitsViewport');
-  const benefitPrevEl = document.getElementById('benefitPrev');
-  const benefitNextEl = document.getElementById('benefitNext');
-  const benefitCurrentEl = document.getElementById('benefitCurrent');
-  const benefitTotalEl = document.getElementById('benefitTotal');
-  const benefitProgressEl = document.getElementById('benefitProgress');
-  const benefitCards = Array.from(benefitTrackEl.querySelectorAll('.benefit'));
-  benefitTotalEl.textContent = String(benefitCards.length).padStart(2,'0');
-  let benefitCarouselTicking = false;
-  let benefitDrag = null;
+  /* ===== Horizontal carousel: buttons, keyboard, touch and pointer drag ===== */
+  function initCarousel({ track, viewport, prev, next, current, total, progress, cardSelector }){
+    const trackEl = document.getElementById(track);
+    const viewportEl = document.getElementById(viewport);
+    const prevEl = document.getElementById(prev);
+    const nextEl = document.getElementById(next);
+    const currentEl = document.getElementById(current);
+    const progressEl = document.getElementById(progress);
+    if (!trackEl || !prevEl || !nextEl) return;
+    const cards = Array.from(trackEl.querySelectorAll(cardSelector));
+    if (total) document.getElementById(total).textContent = String(cards.length).padStart(2,'0');
+    const smooth = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    let ticking = false;
+    let drag = null;
 
-  function benefitStep(){
-    if (benefitCards.length < 2) return benefitCards[0]?.offsetWidth || 0;
-    return benefitCards[1].offsetLeft - benefitCards[0].offsetLeft;
-  }
-  function updateBenefitCarousel(){
-    const maxScroll = Math.max(0, benefitTrackEl.scrollWidth - benefitTrackEl.clientWidth);
-    const step = benefitStep() || 1;
-    const current = Math.min(benefitCards.length - 1, Math.max(0, Math.round(benefitTrackEl.scrollLeft / step)));
-    const ratio = maxScroll ? Math.min(1, Math.max(0, benefitTrackEl.scrollLeft / maxScroll)) : 1;
-    benefitCurrentEl.textContent = String(current + 1).padStart(2,'0');
-    benefitProgressEl.style.width = `${maxScroll ? 10 + ratio * 90 : 100}%`;
-    benefitPrevEl.disabled = benefitTrackEl.scrollLeft <= 3;
-    benefitNextEl.disabled = benefitTrackEl.scrollLeft >= maxScroll - 3;
-    benefitViewportEl.classList.toggle('is-at-end', benefitNextEl.disabled);
-    benefitCarouselTicking = false;
-  }
-  function moveBenefits(direction){
-    benefitTrackEl.scrollBy({
-      left: benefitStep() * direction,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-    });
-  }
-  benefitPrevEl.addEventListener('click', () => moveBenefits(-1));
-  benefitNextEl.addEventListener('click', () => moveBenefits(1));
-  benefitTrackEl.addEventListener('keydown', (event) => {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-    event.preventDefault();
-    moveBenefits(event.key === 'ArrowRight' ? 1 : -1);
-  });
-  benefitTrackEl.addEventListener('scroll', () => {
-    if (!benefitCarouselTicking) {
-      requestAnimationFrame(updateBenefitCarousel);
-      benefitCarouselTicking = true;
+    function step(){
+      if (cards.length < 2) return cards[0]?.offsetWidth || 0;
+      return cards[1].offsetLeft - cards[0].offsetLeft;
     }
-  }, { passive:true });
-  benefitTrackEl.addEventListener('pointerdown', (event) => {
-    if (event.pointerType !== 'mouse' || event.button !== 0) return;
-    benefitDrag = { x:event.clientX, scroll:benefitTrackEl.scrollLeft };
-    benefitTrackEl.classList.add('is-dragging');
-    benefitTrackEl.setPointerCapture(event.pointerId);
-  });
-  benefitTrackEl.addEventListener('pointermove', (event) => {
-    if (!benefitDrag) return;
-    benefitTrackEl.scrollLeft = benefitDrag.scroll - (event.clientX - benefitDrag.x);
-  });
-  function stopBenefitDrag(event){
-    if (!benefitDrag) return;
-    benefitDrag = null;
-    benefitTrackEl.classList.remove('is-dragging');
-    if (benefitTrackEl.hasPointerCapture(event.pointerId)) benefitTrackEl.releasePointerCapture(event.pointerId);
-    const step = benefitStep() || 1;
-    benefitTrackEl.scrollTo({
-      left:Math.round(benefitTrackEl.scrollLeft / step) * step,
-      behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    function update(){
+      const maxScroll = Math.max(0, trackEl.scrollWidth - trackEl.clientWidth);
+      const size = step() || 1;
+      const index = Math.min(cards.length - 1, Math.max(0, Math.round(trackEl.scrollLeft / size)));
+      const ratio = maxScroll ? Math.min(1, Math.max(0, trackEl.scrollLeft / maxScroll)) : 1;
+      if (currentEl) currentEl.textContent = String(index + 1).padStart(2,'0');
+      if (progressEl) progressEl.style.width = `${maxScroll ? 10 + ratio * 90 : 100}%`;
+      prevEl.disabled = trackEl.scrollLeft <= 3;
+      nextEl.disabled = trackEl.scrollLeft >= maxScroll - 3;
+      if (viewportEl) viewportEl.classList.toggle('is-at-end', nextEl.disabled);
+      ticking = false;
+    }
+    function move(direction){
+      trackEl.scrollBy({ left:step() * direction, behavior:smooth() });
+    }
+    prevEl.addEventListener('click', () => move(-1));
+    nextEl.addEventListener('click', () => move(1));
+    trackEl.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      move(event.key === 'ArrowRight' ? 1 : -1);
     });
+    trackEl.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive:true });
+    trackEl.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
+      drag = { x:event.clientX, scroll:trackEl.scrollLeft };
+      trackEl.classList.add('is-dragging');
+      trackEl.setPointerCapture(event.pointerId);
+    });
+    trackEl.addEventListener('pointermove', (event) => {
+      if (!drag) return;
+      trackEl.scrollLeft = drag.scroll - (event.clientX - drag.x);
+    });
+    function stopDrag(event){
+      if (!drag) return;
+      drag = null;
+      trackEl.classList.remove('is-dragging');
+      if (trackEl.hasPointerCapture(event.pointerId)) trackEl.releasePointerCapture(event.pointerId);
+      const size = step() || 1;
+      trackEl.scrollTo({ left:Math.round(trackEl.scrollLeft / size) * size, behavior:smooth() });
+    }
+    trackEl.addEventListener('pointerup', stopDrag);
+    trackEl.addEventListener('pointercancel', stopDrag);
+    window.addEventListener('resize', update, { passive:true });
+    requestAnimationFrame(update);
   }
-  benefitTrackEl.addEventListener('pointerup', stopBenefitDrag);
-  benefitTrackEl.addEventListener('pointercancel', stopBenefitDrag);
-  window.addEventListener('resize', updateBenefitCarousel, { passive:true });
-  requestAnimationFrame(updateBenefitCarousel);
+
+  initCarousel({
+    track:'benefits', viewport:'benefitsViewport', prev:'benefitPrev', next:'benefitNext',
+    current:'benefitCurrent', total:'benefitTotal', progress:'benefitProgress', cardSelector:'.benefit'
+  });
+  initCarousel({
+    track:'moldTrack', viewport:'moldsViewport', prev:'moldPrev', next:'moldNext',
+    current:'moldCurrent', total:'moldTotal', progress:'moldProgress', cardSelector:'.mold-slide'
+  });
 
   function playVideo(){
     const frame = document.getElementById('videoFrame');
