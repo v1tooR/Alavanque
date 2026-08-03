@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Alavanque">
+  <rect width="64" height="64" rx="14" fill="#0b2c42"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M10 49 27 13h10l17 36H43.2l-3.4-8H24.1l-3.4 8H10Zm17.6-16h8.7L32 22.8 27.6 33Z"/>
+  <circle cx="51" cy="51" r="6" fill="#ff5f19"/>
+</svg>

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /_ds/
+Disallow: /components/
+Disallow: /guidelines/
+Disallow: /tokens/
+Disallow: /ui_kits/
+Disallow: /uploads/
+Disallow: /wireframe.html
+
+Sitemap: https://www.alavanqueequipamentos.com.br/sitemap.xml

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.alavanqueequipamentos.com.br/</loc>
+    <lastmod>2026-08-03</lastmod>
+    <image:image>
+      <image:loc>https://www.alavanqueequipamentos.com.br/assets/maquina8.jpg</image:loc>
+      <image:title>Dosadora de Massas G13 Alavanque</image:title>
+      <image:caption>Dosadora de bancada para moldar e porcionar massas.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.alavanqueequipamentos.com.br/quem-somos.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <image:image>
+      <image:loc>https://www.alavanqueequipamentos.com.br/assets/maquina8.jpg</image:loc>
+      <image:title>Alavanque Equipamentos para Gastronomia</image:title>
+      <image:caption>Equipamento Alavanque em uma operação real.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.alavanqueequipamentos.com.br/itens-adicionais.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <image:image>
+      <image:loc>https://www.alavanqueequipamentos.com.br/assets/moldes.jpg</image:loc>
+      <image:title>Itens adicionais para a Dosadora G13</image:title>
+      <image:caption>Moldes, esteira, bandejas e peças para a Dosadora G13.</image:caption>
+    </image:image>
+  </url>
+</urlset>
