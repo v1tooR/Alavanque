@@ -81,10 +81,10 @@
       "email": "contato@alavanqueequipamentos.com.br",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua Luiz Eduardo Taddei de Freitas, 66",
-        "addressLocality": "Jacareí",
+        "streetAddress": "Av. Dr. João Baptista Soares de Queiroz Júnior, 2201, Sala 01 — Jardim das Indústrias",
+        "addressLocality": "São José dos Campos",
         "addressRegion": "SP",
-        "postalCode": "12328-509",
+        "postalCode": "12240-000",
         "addressCountry": "BR"
       },
       "areaServed": { "@type": "Country", "name": "Brasil" },
@@ -1218,7 +1218,7 @@
   .foot h2 { font-family: var(--font-display); color:#fff; font-size: var(--text-sm); letter-spacing: var(--tracking-caps); text-transform: uppercase; margin-bottom: var(--space-4); }
   .foot a { display:block; color: rgba(255,255,255,.7); text-decoration:none; padding: .3rem 0; font-size: var(--text-sm); transition: color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
   .foot a:hover { color: var(--orange-400); transform:translateX(3px); }
-  .foot__logo { height: 34px; margin-bottom: var(--space-5); }
+  .foot__logo { width: auto; height: 34px; margin-bottom: var(--space-5); }
   .foot__bottom { border-top:1px solid rgba(255,255,255,.12); margin-top: var(--space-12); padding-top: var(--space-6); font-size: var(--text-xs); color: rgba(255,255,255,.5); display:flex; justify-content:space-between; flex-wrap:wrap; gap: var(--space-3); }
 
   /* Floating WhatsApp button */
@@ -1235,18 +1235,7 @@
   .fab:hover::before, .fab:focus-visible::before { opacity:1; transform:none; }
   .fab svg { width: 28px; height: 28px; }
 
-  /* Dialog, form feedback and mobile conversion bar */
-  .quote__head { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--space-4); }
-  .dialog-close { flex:0 0 auto; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border:0; border-radius:var(--radius-md); background:var(--color-surface-muted); color:var(--color-text-secondary); cursor:pointer; transition:background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
-  .dialog-close:hover { background:var(--color-accent-soft); color:var(--color-accent); transform:rotate(3deg); }
-  .field-error { display:none; color:var(--color-danger); font-size:var(--text-xs); }
-  .av-field[data-invalid="true"] .field-error { display:block; }
-  .av-field[data-invalid="true"] .av-input { border-color:var(--color-danger); box-shadow:0 0 0 3px rgba(224,36,36,.1); }
-  .quote__privacy { display:flex; align-items:flex-start; gap:.5rem; margin-top:var(--space-5); color:var(--color-text-muted); font-size:var(--text-xs); }
-  .quote__privacy svg { flex:0 0 auto; width:15px; height:15px; color:var(--color-primary); }
-  .toast { position:fixed; left:50%; bottom:var(--space-6); z-index:90; display:flex; align-items:center; gap:.65rem; max-width:calc(100vw - 2rem); padding:.8rem 1rem; border-radius:var(--radius-md); background:var(--blue-900); color:#fff; box-shadow:var(--shadow-xl); font-weight:var(--weight-semibold); opacity:0; transform:translate(-50%,18px); pointer-events:none; transition:opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
-  .toast.is-visible { opacity:1; transform:translate(-50%,0); }
-  .toast svg { width:18px; height:18px; color:var(--orange-400); }
+  /* Mobile conversion bar */
   .mobile-cta { display:none; }
 
   @media (max-width: 720px) {
@@ -1320,9 +1309,9 @@
       </ul>
     </div>
     <div class="nav__right">
-      <button class="av-btn av-btn--accent av-btn--sm" type="button" onclick="openQuote(this)">
+      <a class="av-btn av-btn--accent av-btn--sm" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13." target="_blank" rel="noopener">
         <i data-lucide="message-circle" class="icon"></i> Cotação
-      </button>
+      </a>
       <button class="nav__burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" onclick="openMobileMenu()">
         <i data-lucide="menu"></i>
       </button>
@@ -1341,9 +1330,9 @@
     <a href="./" aria-current="page" onclick="closeMobileMenu()">Home</a>
     <a href="quem-somos.html" onclick="closeMobileMenu()">Quem Somos</a>
     <a href="itens-adicionais.html" onclick="closeMobileMenu()">Itens adicionais</a>
-    <button class="av-btn av-btn--accent av-btn--block" type="button" onclick="closeMobileMenu(); openQuote();">
-      <i data-lucide="message-circle" class="icon"></i> Solicitar cotação
-    </button>
+    <a class="av-btn av-btn--accent av-btn--block" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13." target="_blank" rel="noopener" onclick="closeMobileMenu()">
+      <i data-lucide="message-circle" class="icon"></i> Falar no WhatsApp
+    </a>
   </div>
 </div>
 
@@ -1363,9 +1352,9 @@
           <span class="chip"><i data-lucide="credit-card"></i> Em até 12x</span>
         </div>
         <div class="hero__cta" data-enter style="--i:4">
-          <button class="av-btn av-btn--accent av-btn--lg" type="button" onclick="openQuote(this)">
-            <i data-lucide="message-circle" class="icon"></i> Solicitar cotação no WhatsApp
-          </button>
+          <a class="av-btn av-btn--accent av-btn--lg" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13." target="_blank" rel="noopener">
+            <i data-lucide="message-circle" class="icon"></i> Falar no WhatsApp agora
+          </a>
           <a class="av-btn av-btn--secondary av-btn--lg" href="#video" style="color:#fff;border-color:rgba(255,255,255,.4)">
             <i data-lucide="play-circle" class="icon"></i> Assistir vídeo
           </a>
@@ -1547,14 +1536,6 @@
           <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
             data-src="assets/biscoito-casadinho.webp" data-caption="Casadinho com goiabada" data-alt="Biscoitos casadinhos recheados com goiabada">
             <img src="assets/biscoito-casadinho.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Casadinho com goiabada">
-          </button>
-          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
-            data-src="assets/biscoito-sortido.jpg" data-caption="Amanteigados sortidos" data-alt="Biscoitos amanteigados sortidos, com desenhos e rosquinhas recheadas">
-            <img src="assets/biscoito-sortido.jpg" width="500" height="334" loading="lazy" decoding="async" alt="Amanteigados sortidos">
-          </button>
-          <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
-            data-src="assets/biscoito-rosquinha.webp" data-caption="Rosquinha amanteigada" data-alt="Rosquinhas amanteigadas em uma tigela">
-            <img src="assets/biscoito-rosquinha.webp" width="480" height="480" loading="lazy" decoding="async" alt="Rosquinha amanteigada">
           </button>
           <button class="applications__thumb" type="button" role="radio" aria-checked="false" tabindex="-1"
             data-src="assets/biscoito-chocolate.webp" data-caption="Biscoito de chocolate" data-alt="Biscoitos de chocolate polvilhados com açúcar em um prato">
@@ -1812,9 +1793,9 @@
         <p class="specs-card__notice"><i data-lucide="triangle-alert" aria-hidden="true"></i><span><strong>Importante:</strong> a G13 não prepara a massa. Ela deve chegar pronta, produzida anteriormente em batedeira, masseira ou outro equipamento adequado.</span></p>
         <div class="specs-card__action">
           <span>Precisa confirmar alguma medida?</span>
-          <button class="av-btn av-btn--secondary" type="button" onclick="openQuote(this)">
+          <a class="av-btn av-btn--secondary" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20t%C3%A9cnica%20sobre%20a%20Dosadora%20G13." target="_blank" rel="noopener">
             <i data-lucide="message-circle" class="icon"></i> Tirar dúvida técnica
-          </button>
+          </a>
         </div>
       </aside>
     </div>
@@ -1854,12 +1835,12 @@
 
       <article class="confidence-card">
         <div class="confidence-card__top">
-          <span class="confidence-card__icon"><i data-lucide="plug" aria-hidden="true"></i></span>
-          <span class="confidence-card__proof">Uso em bancada</span>
+          <span class="confidence-card__icon"><i data-lucide="zap-off" aria-hidden="true"></i></span>
+          <span class="confidence-card__proof">Não usa energia elétrica</span>
         </div>
         <h3>Instalação sem adaptação específica</h3>
-        <p>O equipamento é de bancada. Organize uma mesa adequada para operar sem precisar modificar o local.</p>
-        <span class="confidence-card__footer"><i data-lucide="circle-check" aria-hidden="true"></i> Estrutura simples para começar</span>
+        <p>A G13 é acionada por manivela, com a força das mãos. Não precisa de tomada nem de instalação elétrica: basta uma mesa firme para operar.</p>
+        <span class="confidence-card__footer"><i data-lucide="circle-check" aria-hidden="true"></i> Equipamento de bancada, sem obra no local</span>
       </article>
 
       <article class="confidence-card">
@@ -1875,9 +1856,9 @@
 
     <div class="purchase-confidence__action" data-reveal>
       <span><strong>Ainda quer confirmar algum ponto antes de decidir?</strong><span>Converse com a equipe e receba uma orientação para a sua produção.</span></span>
-      <button class="av-btn av-btn--accent" type="button" onclick="openQuote(this)">
+      <a class="av-btn av-btn--accent" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20sobre%20a%20Dosadora%20G13." target="_blank" rel="noopener">
         <i data-lucide="message-circle" class="icon"></i> Falar com um especialista
-      </button>
+      </a>
     </div>
   </div>
 </section>
@@ -1896,9 +1877,9 @@
       </div>
       <small class="final__metric-note">* A capacidade varia conforme o método, o tipo de massa e a organização da operação.</small>
       <div class="final__actions">
-        <button class="av-btn av-btn--accent av-btn--lg" type="button" onclick="openQuote(this)">
+        <a class="av-btn av-btn--accent av-btn--lg" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20orienta%C3%A7%C3%A3o%20e%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13." target="_blank" rel="noopener">
           <i data-lucide="message-circle" class="icon"></i> Receber orientação e cotação
-        </button>
+        </a>
         <a class="av-btn av-btn--lg final__secondary" href="#especificacoes">
           <i data-lucide="clipboard-list" class="icon"></i> Rever medidas e capacidade
         </a>
@@ -1939,51 +1920,9 @@
 
 <div class="mobile-cta" id="mobileCta" inert>
   <div class="mobile-cta__copy">Dosadora G13<span>Orientação e cotação sem compromisso</span></div>
-  <button class="av-btn av-btn--accent av-btn--sm" type="button" onclick="openQuote(this)">
-    <i data-lucide="message-circle" class="icon"></i> Cotar agora
-  </button>
-</div>
-
-<!-- QUOTE DIALOG -->
-<div class="av-dialog-backdrop" id="quote" style="display:none" onclick="closeQuote()">
-  <div class="av-dialog" role="dialog" aria-modal="true" aria-labelledby="quoteTitle" aria-describedby="quoteDescription" onclick="event.stopPropagation()">
-  <form id="quoteForm" novalidate>
-    <div class="av-dialog__body">
-      <div class="quote__head">
-        <div>
-          <h2 class="av-dialog__title" id="quoteTitle">Solicitar cotação</h2>
-          <p class="av-dialog__text" id="quoteDescription" style="margin-bottom:var(--space-6)">Informe seus dados e continue no WhatsApp para confirmar a configuração e receber a cotação.</p>
-        </div>
-        <button class="dialog-close" type="button" aria-label="Fechar cotação" onclick="closeQuote()"><i data-lucide="x"></i></button>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
-        <div class="av-field">
-          <label class="av-label" for="quoteName">Nome <span class="av-label__req">*</span></label>
-          <input class="av-input" id="quoteName" name="name" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
-          <span class="field-error" id="quoteNameError">Informe seu nome.</span>
-        </div>
-        <div class="av-field">
-          <label class="av-label" for="quotePhone">WhatsApp <span class="av-label__req">*</span></label>
-          <input class="av-input" id="quotePhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" aria-describedby="quotePhoneError" required>
-          <span class="field-error" id="quotePhoneError">Informe um WhatsApp com DDD.</span>
-        </div>
-        <div class="av-field"><label class="av-label" for="quoteProduct">Tenho interesse em</label>
-          <select class="av-select" id="quoteProduct" name="product"><option>Dosadora G13</option><option>Molde personalizado</option><option>Outro equipamento</option></select>
-        </div>
-      </div>
-      <p class="quote__privacy"><i data-lucide="lock-keyhole"></i> Seus dados serão usados somente para este atendimento.</p>
-    </div>
-    <div class="av-dialog__actions">
-      <button class="av-btn av-btn--ghost" type="button" onclick="closeQuote()">Agora não</button>
-      <button class="av-btn av-btn--accent" type="submit"><i data-lucide="message-circle" class="icon"></i> Receber cotação no WhatsApp</button>
-    </div>
-  </form>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status" aria-live="polite">
-  <i data-lucide="circle-check"></i>
-  <span>Abrindo o WhatsApp com sua mensagem…</span>
+  <a class="av-btn av-btn--accent av-btn--sm" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13." target="_blank" rel="noopener">
+    <i data-lucide="message-circle" class="icon"></i> Chamar no WhatsApp
+  </a>
 </div>
 
 <script>
@@ -2074,9 +2013,9 @@
         <span class="mold-slide__family">Sob medida</span>
         <h3>Molde personalizado</h3>
         <p>Não achou o formato do seu produto? A equipe avalia um molde exclusivo.</p>
-        <button class="av-btn av-btn--primary av-btn--block" type="button" onclick="openQuoteFor('Molde personalizado', this)">
+        <a class="av-btn av-btn--primary av-btn--block" href="https://wa.me/5511932981448?text=Ol%C3%A1%21%20Quero%20um%20molde%20personalizado%20para%20a%20Dosadora%20G13." target="_blank" rel="noopener">
           <i data-lucide="message-circle" class="icon"></i> Pedir um molde
-        </button>
+        </a>
       </div>
     </article>`;
   document.getElementById('benefits').innerHTML = BENEFITS.map(([ic,t,d],i)=>`
@@ -2552,7 +2491,6 @@
     });
   }
 
-  let quoteTrigger = null;
   function trapFocus(event, container){
     if (event.key !== 'Tab') return;
     const items = Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'))
@@ -2563,74 +2501,6 @@
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
-  function openQuote(trigger){
-    quoteTrigger = trigger || null;
-    const quote = document.getElementById('quote');
-    quote.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    const first = document.getElementById('quoteName');
-    if (first) setTimeout(() => first.focus(), 30);
-    document.addEventListener('keydown', onQuoteKeydown);
-  }
-  function openQuoteFor(product, trigger){
-    const productSelect = document.getElementById('quoteProduct');
-    if (productSelect && Array.from(productSelect.options).some(option => option.value === product)) {
-      productSelect.value = product;
-    }
-    openQuote(trigger);
-  }
-  function closeQuote(){
-    const quote = document.getElementById('quote');
-    quote.style.display = 'none';
-    document.body.style.overflow = '';
-    document.removeEventListener('keydown', onQuoteKeydown);
-    if (quoteTrigger && quoteTrigger.focus) quoteTrigger.focus();
-    quoteTrigger = null;
-  }
-  function onQuoteKeydown(e){
-    if (e.key === 'Escape') closeQuote();
-    else trapFocus(e, document.getElementById('quoteForm'));
-  }
-
-  const quoteForm = document.getElementById('quoteForm');
-  const quoteName = document.getElementById('quoteName');
-  const quotePhone = document.getElementById('quotePhone');
-  const quoteProduct = document.getElementById('quoteProduct');
-  function setFieldValidity(input, valid){
-    const field = input.closest('.av-field');
-    field.setAttribute('data-invalid', String(!valid));
-    input.setAttribute('aria-invalid', String(!valid));
-  }
-  quoteName.addEventListener('input', () => {
-    if (quoteName.value.trim().length >= 2) setFieldValidity(quoteName, true);
-  });
-  quotePhone.addEventListener('input', () => {
-    const digits = quotePhone.value.replace(/\D/g,'').slice(0,11);
-    let formatted = digits;
-    if (digits.length > 2) formatted = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
-    if (digits.length > 7) formatted = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
-    quotePhone.value = formatted;
-    if (digits.length >= 10) setFieldValidity(quotePhone, true);
-  });
-  quoteForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const nameValid = quoteName.value.trim().length >= 2;
-    const phoneValid = quotePhone.value.replace(/\D/g,'').length >= 10;
-    setFieldValidity(quoteName, nameValid);
-    setFieldValidity(quotePhone, phoneValid);
-    if (!nameValid || !phoneValid) {
-      (nameValid ? quotePhone : quoteName).focus();
-      return;
-    }
-    const message = `Olá! Sou ${quoteName.value.trim()} e quero uma cotação para ${quoteProduct.value}. Meu WhatsApp é ${quotePhone.value}.`;
-    const url = `https://wa.me/5511932981448?text=${encodeURIComponent(message)}`;
-    closeQuote();
-    const toast = document.getElementById('toast');
-    toast.classList.add('is-visible');
-    window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
-    window.open(url, '_blank', 'noopener,noreferrer');
-  });
-
   function openMobileMenu(){
     const menu = document.getElementById('mobileMenu');
     menu.setAttribute('data-open', 'true');
