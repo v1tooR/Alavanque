@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="video.js" defer></script>
+<script src="cookies.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,6 +80,7 @@
       "image": "https://www.alavanqueequipamentos.com.br/assets/og-alavanque.png",
       "telephone": "+55 11 93298-1448",
       "email": "contato@alavanqueequipamentos.com.br",
+      "taxID": "45.899.607/0001-93",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Dr. João Baptista Soares de Queiroz Júnior, 2201, Sala 01 — Jardim das Indústrias",
@@ -1220,6 +1222,8 @@
   .foot a:hover { color: var(--orange-400); transform:translateX(3px); }
   .foot__logo { width: auto; height: 34px; margin-bottom: var(--space-5); }
   .foot__bottom { border-top:1px solid rgba(255,255,255,.12); margin-top: var(--space-12); padding-top: var(--space-6); font-size: var(--text-xs); color: rgba(255,255,255,.5); display:flex; justify-content:space-between; flex-wrap:wrap; gap: var(--space-3); }
+  .foot__legal a { color: rgba(255,255,255,.82); font-size: var(--text-xs); text-decoration: underline; text-underline-offset: .2em; }
+  .foot__legal a:hover { color: var(--orange-400); }
 
   /* Floating WhatsApp button */
   .fab {
@@ -1907,8 +1911,8 @@
       <div><h2>Contato</h2><a href="https://wa.me/5511932981448?text=Ol%C3%A1!%20Quero%20uma%20cota%C3%A7%C3%A3o%20da%20Dosadora%20G13" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@alavanqueequipamentos.com.br">E-mail</a><a href="https://instagram.com/alavanque.equipamentos" target="_blank" rel="noopener">Instagram</a></div>
     </div>
     <div class="foot__bottom">
-      <span>© 2026 Alavanque — Equipamentos para Gastronomia</span>
-      <span>Feito com o Alavanque Design System</span>
+      <span>© 2026 Alavanque — Equipamentos para Gastronomia · CNPJ 45.899.607/0001-93</span>
+      <span class="foot__legal"><a href="politica-de-privacidade.html">Política de privacidade</a></span>
     </div>
   </div>
 </footer>
