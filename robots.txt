@@ -7,6 +7,6 @@ Disallow: /guidelines/
 Disallow: /tokens/
 Disallow: /ui_kits/
 Disallow: /uploads/
-Disallow: /wireframe.html
+Disallow: /previa-do-site.html
 
 Sitemap: https://www.alavanqueequipamentos.com.br/sitemap.xml

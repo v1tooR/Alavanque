@@ -1,0 +1,288 @@
+﻿===========================================================================
+  SITE ALAVANQUE — EQUIPAMENTOS PARA GASTRONOMIA
+  Entrega do projeto
+  Agosto de 2026
+===========================================================================
+
+Este arquivo explica o que você está recebendo, como colocar o site no ar
+e o que fazer depois. Foi escrito para ser lido por qualquer pessoa, sem
+precisar entender de programação. Se quem for publicar o site for um
+técnico, ele vai achar tudo bem simples: é um site pronto, só precisa
+copiar os arquivos para a hospedagem.
+
+Guarde este arquivo junto com a pasta do site.
+
+
+---------------------------------------------------------------------------
+1. O QUE É ESTE SITE
+---------------------------------------------------------------------------
+
+São quatro páginas:
+
+  Página inicial ................. o produto, a Dosadora G13
+  Quem Somos ..................... a empresa, história e contato
+  Itens adicionais ............... moldes, esteira, bandejas e peças
+  Política de privacidade ........ exigência da lei (LGPD)
+
+O site não tem área de login, não tem carrinho de compras e não tem
+formulário de cadastro. Todos os botões levam direto para a conversa no
+WhatsApp, com a mensagem já escrita conforme o lugar onde a pessoa
+clicou. Isso foi feito de propósito: quanto menos passos, mais gente
+chega até você.
+
+Endereços e dados usados no site:
+
+  Site ......... www.alavanqueequipamentos.com.br
+  WhatsApp ..... (11) 93298-1448
+  E-mail ....... contato@alavanqueequipamentos.com.br
+  Instagram .... @alavanque.equipamentos
+  YouTube ...... @alavanqueequipamentos8337
+  CNPJ ......... 45.899.607/0001-93
+  Endereço ..... Av. Dr. João Baptista Soares de Queiroz Júnior, 2201
+                 Sala 01 — Jardim das Indústrias
+                 São José dos Campos — SP, 12240-000
+
+Se algum desses dados mudar, precisa ser alterado nos arquivos. Veja o
+item 6 mais abaixo.
+
+
+---------------------------------------------------------------------------
+2. COMO COLOCAR O SITE NO AR
+---------------------------------------------------------------------------
+
+Para o site ficar disponível na internet você precisa de duas coisas:
+
+  a) O domínio, que é o endereço (alavanqueequipamentos.com.br).
+     Ele é alugado por ano, normalmente no Registro.br.
+
+  b) A hospedagem, que é o espaço onde os arquivos ficam guardados.
+     É um serviço mensal ou anual. Qualquer hospedagem simples serve:
+     este site não precisa de banco de dados, nem de PHP, nem de nada
+     especial. É o tipo mais barato e mais rápido que existe.
+
+Com as duas coisas contratadas, o passo a passo é:
+
+  PASSO 1
+  Entre no painel da sua hospedagem e procure por "Gerenciador de
+  arquivos" (às vezes aparece como "File Manager").
+
+  PASSO 2
+  Abra a pasta pública do site. Ela costuma se chamar public_html,
+  www ou htdocs, dependendo da empresa. É dentro dela que os arquivos
+  precisam ficar.
+
+  PASSO 3
+  Envie para dentro dessa pasta TODO o conteúdo da pasta do site,
+  respeitando a lista do item 3 deste arquivo.
+
+  IMPORTANTE: envie o CONTEÚDO da pasta, e não a pasta inteira.
+  Se você jogar a pasta dentro do servidor, o endereço do site vira
+  algo como seusite.com.br/Alavanque, que não é o desejado. O arquivo
+  index.html precisa ficar solto ali, junto dos outros.
+
+  PASSO 4
+  Espere terminar o envio e abra o endereço do site no navegador.
+  A página inicial é o arquivo index.html, e ela abre sozinha quando
+  alguém digita o endereço.
+
+  PASSO 5
+  Peça para a hospedagem ativar o certificado de segurança (SSL), que
+  é o cadeado do navegador e faz o endereço começar com https. Quase
+  todas oferecem isso de graça, com um clique. Sem ele, o navegador
+  avisa que o site não é seguro e as pessoas desistem de entrar.
+
+Se você contratar alguém para publicar, é só entregar a pasta e dizer:
+"site estático em HTML, subir o conteúdo na raiz do domínio e ativar o
+SSL". A pessoa vai entender na hora.
+
+
+---------------------------------------------------------------------------
+3. O QUE PRECISA SER ENVIADO PARA A HOSPEDAGEM
+---------------------------------------------------------------------------
+
+ENVIE ESTES — o site não funciona sem eles:
+
+  index.html ..................... página inicial
+  quem-somos.html ................ página Quem Somos
+  itens-adicionais.html .......... página de itens adicionais
+  politica-de-privacidade.html ... página da política de privacidade
+
+  styles.css ..................... aparência geral
+  base.css ....................... aparência geral
+  components.css ................. aparência geral
+  inner-pages.css ................ aparência das páginas internas
+  tokens (pasta) ................. cores, tamanhos e tipos de letra
+
+  inner-pages.js ................. funcionamento do menu e das animações
+  video.js ....................... funcionamento dos vídeos
+  cookies.js ..................... aviso de cookies
+
+  assets (pasta) ................. TODAS as fotos, a logo e os ícones
+
+  favicon.ico .................... ícone que aparece na aba do navegador
+  favicon.svg
+  safari-pinned-tab.svg
+  site.webmanifest
+  browserconfig.xml
+  robots.txt ..................... instruções para o Google
+  sitemap.xml .................... lista das páginas para o Google
+
+NÃO PRECISA ENVIAR — são materiais de trabalho, ficam só com você:
+
+  previa-do-site.html ............ o rascunho aprovado antes do site
+  readme.md, SKILL.md ............ anotações técnicas
+  unnamed.jpg, .thumbnail ........ arquivos soltos de trabalho
+  _ds, components, guidelines,
+  ui_kits, uploads (pastas) ...... material de apoio do projeto
+  este arquivo LEIA-ME
+
+Enviar esses últimos por engano não quebra nada, mas ocupa espaço à toa
+e deixa material interno visível na internet.
+
+
+---------------------------------------------------------------------------
+4. O QUE CONFERIR DEPOIS DE PUBLICAR
+---------------------------------------------------------------------------
+
+Abra o site no computador e também no celular, e confira:
+
+  [ ] A logo aparece no topo e no rodapé, sem estar esticada.
+  [ ] As fotos da máquina e dos moldes carregam.
+  [ ] Os botões laranja abrem o WhatsApp com a mensagem já escrita.
+  [ ] O vídeo da página inicial abre ao clicar.
+  [ ] O menu abre e fecha no celular.
+  [ ] O aviso de cookies aparece na primeira visita e some depois de
+      clicar em "Entendi".
+  [ ] O link "Política de privacidade", no rodapé, abre a página certa.
+  [ ] O endereço começa com https e tem o cadeado.
+
+Se alguma foto não aparecer, quase sempre é porque a pasta "assets" não
+foi enviada inteira. Envie de novo e atualize a página.
+
+
+---------------------------------------------------------------------------
+5. COLOCANDO O SITE NO GOOGLE
+---------------------------------------------------------------------------
+
+O site já vem preparado para aparecer nas buscas: tem títulos, descrições
+e a lista de páginas (sitemap.xml) que o Google lê. Mas ele não aparece
+sozinho da noite para o dia.
+
+Para acelerar:
+
+  1. Crie uma conta gratuita no Google Search Console
+     (search.google.com/search-console).
+  2. Cadastre o endereço do site e confirme que ele é seu, seguindo as
+     instruções que aparecem na tela.
+  3. Envie o endereço www.alavanqueequipamentos.com.br/sitemap.xml
+     no menu "Sitemaps".
+
+Depois disso, costuma levar de alguns dias a algumas semanas até as
+páginas começarem a aparecer nas buscas. É normal.
+
+Vale também cadastrar a empresa no Google Meu Negócio, com o endereço de
+São José dos Campos. Para quem procura fornecedor na região, isso costuma
+dar mais retorno do que o próprio site.
+
+
+---------------------------------------------------------------------------
+6. COMO MUDAR TEXTOS, FOTOS E CONTATOS
+---------------------------------------------------------------------------
+
+Este site não tem painel de administração. As alterações são feitas
+direto nos arquivos e depois reenviadas para a hospedagem. Para mudanças
+pequenas, dá para fazer sozinho:
+
+  TROCAR UM TEXTO
+  Abra o arquivo da página (por exemplo index.html) em um editor de
+  texto simples, como o Bloco de Notas. Use Ctrl+F para localizar a
+  frase que quer mudar, altere apenas as palavras e salve. Não mexa
+  nos sinais < e > que aparecem em volta.
+
+  TROCAR UMA FOTO
+  Coloque a foto nova dentro da pasta "assets", com o MESMO nome do
+  arquivo antigo. A página passa a mostrar a nova sozinha. Se o nome
+  for diferente, é preciso alterar o nome dentro do arquivo da página.
+  Use fotos já reduzidas para a internet (no máximo 1600 pixels de
+  largura), senão o site fica lento.
+
+  MUDAR TELEFONE, E-MAIL OU ENDEREÇO
+  Esses dados aparecem em vários lugares, inclusive em partes que são
+  lidas pelo Google e não ficam visíveis na tela. Nesse caso vale pedir
+  para quem desenvolveu, para não sobrar nenhum dado antigo pelo
+  caminho.
+
+Antes de qualquer alteração, faça uma cópia da pasta inteira. Se algo
+der errado, é só voltar a cópia.
+
+
+---------------------------------------------------------------------------
+7. COISAS IMPORTANTES DE SABER
+---------------------------------------------------------------------------
+
+OS VÍDEOS FICAM NO YOUTUBE
+Os vídeos que aparecem no site não estão guardados dentro dele: estão no
+canal da Alavanque no YouTube e são exibidos dentro das páginas. Se um
+vídeo for apagado ou marcado como privado no YouTube, ele para de
+funcionar no site também. Então não apague os vídeos do canal.
+
+AS LETRAS E OS ÍCONES VÊM DA INTERNET
+O tipo de letra e os iconezinhos do site são carregados de serviços
+externos gratuitos (Google Fonts e unpkg). Isso é comum e funciona bem,
+mas significa que o visitante precisa estar com internet normal. Em
+casos raros, se esses serviços ficarem fora do ar, os iconezinhos podem
+sumir por alguns minutos. O texto e as fotos continuam aparecendo.
+
+O AVISO DE COOKIES
+O site guarda pouquíssima coisa no navegador do visitante: apenas o
+registro de que ele já leu o aviso, para não mostrar de novo. Não há
+rastreamento para anúncios, nem Google Analytics, nem pixel do
+Facebook. Se um dia você quiser instalar alguma dessas ferramentas, a
+política de privacidade precisará ser atualizada.
+
+CÓPIA DE SEGURANÇA
+Guarde uma cópia desta pasta em outro lugar: pendrive, HD externo ou
+Google Drive. Se a hospedagem for perdida ou trocada, com essa cópia o
+site volta ao ar em minutos.
+
+
+---------------------------------------------------------------------------
+8. PENDÊNCIAS — PRECISA DA SUA CONFIRMAÇÃO
+---------------------------------------------------------------------------
+
+Três pontos ficaram em aberto. Nenhum impede a publicação, mas vale
+resolver:
+
+  1. CNPJ
+     O rodapé e a política de privacidade estão com o CNPJ
+     45.899.607/0001-93. Confirme se está correto, porque o CNPJ que
+     aparece hoje no rodapé do site da Proteijo é diferente. Um dos
+     dois precisa ser corrigido.
+
+  2. NOME DA HOSPEDAGEM
+     No item 5 da política de privacidade a empresa de hospedagem é
+     citada de forma genérica ("empresa de hospedagem do site"). Se
+     quiser que apareça o nome, é só informar qual é.
+
+  3. DUAS FOTOS DE PRODUTO
+     A galeria da página inicial ficou com três fotos, depois de tirar
+     as duas que mostravam produtos que a G13 não faz. Se quiser voltar
+     a ter cinco, envie duas fotos de produtos feitos na própria
+     máquina.
+
+
+---------------------------------------------------------------------------
+9. RESUMO PARA GUARDAR
+---------------------------------------------------------------------------
+
+  O site é um conjunto de arquivos. Não há painel, não há senha, não há
+  mensalidade de sistema. Você paga apenas o domínio e a hospedagem.
+
+  Para publicar: copiar o conteúdo da pasta para a área pública da
+  hospedagem e ativar o cadeado de segurança.
+
+  Para alterar: mudar o arquivo e enviar de novo.
+
+  Para não perder: manter uma cópia da pasta guardada.
+
+===========================================================================
